@@ -523,7 +523,6 @@ public class Login extends Application {
     private boolean validLogin(String username, String password, boolean hashedState, boolean stayLoggedIn){
         boolean validUser = false;
         try {
-
             String hashPassword;
 
             if(rememberMeBtn != null){
@@ -556,7 +555,7 @@ public class Login extends Application {
                             && ((passwordHash.validatePassword(password, databasePassword)) == true))){
                         validUser = true;
                         if(stayLoggedIn == true){
-                            config.createInfo(databaseUsername, databasePassword);
+                            config.setStayLoggedIn(databaseUsername, databasePassword);
                         }
                         System.out.println("Valid User");
                     }
