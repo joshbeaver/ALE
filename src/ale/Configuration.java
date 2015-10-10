@@ -134,6 +134,36 @@ public class Configuration {
 
     public String getStyle(){
         String style = "";
+
+        DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
+        try {
+            File xmlFile = new File("config/config.xml");
+
+            DocumentBuilder documentBuilder = builderFactory.newDocumentBuilder();
+            Document document = documentBuilder.parse(xmlFile);
+            document.normalize();
+
+            Node appearanceNode = document.getElementsByTagName("appearance").item(0);
+            Element appearanceElement = (Element)appearanceNode;
+
+            Node styleNode = appearanceElement.getElementsByTagName("style").item(0);
+
+            style = styleNode.getTextContent();
+
+        }catch (ParserConfigurationException parserConfigExcep){
+            System.out.println("<----- Parser Configuration Exception in Auto Login ----->");
+            parserConfigExcep.printStackTrace();
+            System.out.println("<---------->\n");
+        }catch (IOException ioExcep){
+            System.out.println("<----- IO Exception in in Auto Login ----->");
+            ioExcep.printStackTrace();
+            System.out.println("<---------->\n");
+        }catch (SAXException saxExcep){
+            System.out.println("<----- SAX Exception in in Auto Login ----->");
+            saxExcep.printStackTrace();
+            System.out.println("<---------->\n");
+        }
+
         return style;
     }
 

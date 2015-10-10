@@ -383,10 +383,10 @@ public class Login extends Application {
 //---------------------------------------------------------------------------------------------------> Sign Up Pane End
 
         loginPane.getStyleClass().add("loginPane");
-        loginPane.getStylesheets().add(Main.class.getResource("css/styleDark.css").toExternalForm());
+        loginPane.getStylesheets().add(Main.class.getResource("css/" + config.getStyle() + ".css").toExternalForm());
 
         signUpPane.getStyleClass().add("loginPane");
-        signUpPane.getStylesheets().add(Main.class.getResource("css/styleDark.css").toExternalForm());
+        signUpPane.getStylesheets().add(Main.class.getResource("css/" + config.getStyle() + ".css").toExternalForm());
 
         primaryStage.setTitle("ALE");
         primaryStage.initStyle(StageStyle.UNDECORATED);

@@ -52,6 +52,7 @@ public class Main extends Application {
     Client client = new Client();
     Misc utils = new Misc();
     XMLParser xmlParser = new XMLParser();
+    Configuration config = new Configuration();
     Interaction database = new Interaction();
     Search search = new Search();
     SplashScreen splashScreen = new SplashScreen();
@@ -780,7 +781,7 @@ public class Main extends Application {
         rootPane.setTop(topPane);
         rootPane.setCenter(dashBoardBase);
         rootPane.getStyleClass().add("rootPane");
-        rootPane.getStylesheets().add(Main.class.getResource("css/styleDark.css").toExternalForm());
+        rootPane.getStylesheets().add(Main.class.getResource("css/" + config.getStyle() + ".css").toExternalForm());
 
         splashScreen.setProgress(1);
         System.out.println("Loading at 100%");

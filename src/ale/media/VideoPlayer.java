@@ -1,5 +1,6 @@
 package ale.media;
 
+import ale.Configuration;
 import ale.Main;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -41,6 +42,8 @@ public class VideoPlayer {
     Rectangle2D screenSize;
     double screenWidth;
     double screenHeight;
+
+    Configuration config = new Configuration();
 
     Boolean maximized;
 
@@ -206,7 +209,7 @@ public class VideoPlayer {
         });
 
         rootPane.getChildren().addAll(mediaView, mediaBox);
-        rootPane.getStylesheets().add(Main.class.getResource("css/styleDark.css").toExternalForm());
+        rootPane.getStylesheets().add(Main.class.getResource("css/" + config.getStyle() + ".css").toExternalForm());
         primaryStage.setTitle("ALE Media Player");
         primaryStage.setResizable(false);
         primaryStage.setFullScreenExitHint("Double click to exit fullscreen");
