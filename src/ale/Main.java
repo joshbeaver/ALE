@@ -14,6 +14,7 @@ import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.geometry.Rectangle2D;
+import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
@@ -389,6 +390,7 @@ public class Main extends Application {
         navigationPane.getStyleClass().add("navigationPane");
         navigationPane.getChildren().addAll(initDivider, dashboardBtn, profileBtn, coursesBtn, mainDivider, notebookBtn,
                 simsBtn, textEditorBtn, toolsDivider, wolframBtn, wikipediaBtn, sitesDivider, settingsBtn);
+
 
         topPane = new HBox(1);
         topPane.getStyleClass().add("topPanel");
@@ -872,18 +874,6 @@ public class Main extends Application {
     }
 
     public void resetBtns(){
-        /*
-        dashboardBtn.setStyle("-fx-background-color: transparent");
-        dashboardBtn.getStyleClass().add("dashboardBtn");
-        profileBtn.setStyle("-fx-background-color: transparent");
-        coursesBtn.setStyle("-fx-background-color: transparent");
-        notebookBtn.setStyle("-fx-background-color: transparent");
-        simsBtn.setStyle("-fx-background-color: transparent");
-        textEditorBtn.setStyle("-fx-background-color: transparent");
-        wolframBtn.setStyle("-fx-background-color: transparent");
-        wikipediaBtn.setStyle("-fx-background-color: transparent");
-        settingsBtn.setStyle("-fx-background-color: transparent");
-        */
 
         dashboardBtn.getStyleClass().removeAll("dashboardBtnSelected");
         profileBtn.getStyleClass().removeAll("profileBtnSelected");

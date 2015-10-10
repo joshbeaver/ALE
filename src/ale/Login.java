@@ -125,10 +125,6 @@ public class Login extends Application {
             }
         });
 
-        /**Uncomment for debugging*/
-        //usernameLoginField.setText("8cake");
-        //passwordLoginField.setText("cronzo");
-
         loginCloseBtn = new Button("");
         loginCloseBtn.getStyleClass().add("loginSystemBtn");
         loginCloseBtn.setOnAction(e -> {
@@ -185,7 +181,12 @@ public class Login extends Application {
         loginPane.setTop(loginTopPanel);
         loginPane.setCenter(loginBox);
 
-        config.loadInfo(primaryStage);
+
+        /**
+         * Automatically logs the user in
+         * if the user has opted to be remembered
+         */
+        config.autoLogin(primaryStage);
 
 //-----------------------------------------------------------------------------------------------------> Login Pane End
 
