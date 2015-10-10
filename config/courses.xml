@@ -1,0 +1,277 @@
+<courses version = "0.1">
+
+    <root name = "Physics">
+        <icon>img/styleDark/Courses/physCourseBtn.png</icon>
+        <locator>default</locator>
+        <labelStyle>lbl2</labelStyle>
+
+        <branch name = "Phys Branch 1">
+            <icon>anatomyAndPhysiologyBtn.png</icon>
+            <locator>default</locator>
+            <labelStyle>lbl2</labelStyle>
+
+            <leaf name = "Leaf 1">
+                <type>local</type>
+                <url>res/courses/biology/anatomy/theSkeletalSystem.html</url>
+                <labelStyle>lbl2</labelStyle>
+            </leaf>
+
+            <leaf name = "Leaf 2">
+                <type>local</type>
+                <url>res/courses/biology/anatomy/theReproductiveSystem.html</url>
+                <labelStyle>lbl2</labelStyle>
+            </leaf>
+
+            <leaf name = "Leaf 3">
+                <type>local</type>
+                <url>res/courses/biology/anatomy/theDigestiveSystem.html</url>
+                <labelStyle>lbl2</labelStyle>
+            </leaf>
+
+        </branch>
+
+        <branch name = "Phys Branch 2">
+            <icon>cellTheory.png</icon>
+            <locator>default</locator>
+            <labelStyle>lbl2</labelStyle>
+
+            <leaf name = "Leaf 1">
+                <type>web</type>
+                <url>http://localhost:63342/ALE/ale/course/biology/anatomy/theDigestiveSystem.html</url>
+                <labelStyle>lbl2</labelStyle>
+            </leaf>
+
+        </branch>
+
+    </root>
+
+    <root name = "Chemistry">
+        <icon>img/styleDark/Courses/chemCourseBtn.png</icon>
+        <locator>default</locator>
+        <labelStyle>lbl2</labelStyle>
+
+        <branch name = "Chem Branch 1">
+            <icon>anatomyAndPhysiologyBtn.png</icon>
+            <locator>default</locator>
+            <labelStyle>lbl2</labelStyle>
+
+            <leaf name = "Leaf 1">
+                <type>local</type>
+                <url>res/courses/biology/anatomy/theSkeletalSystem.html</url>
+                <labelStyle>lbl2</labelStyle>
+            </leaf>
+
+            <leaf name = "Leaf 2">
+                <type>local</type>
+                <url>res/courses/biology/anatomy/theReproductiveSystem.html</url>
+                <labelStyle>lbl2</labelStyle>
+            </leaf>
+
+            <leaf name = "Leaf 3">
+                <type>local</type>
+                <url>res/courses/biology/anatomy/theDigestiveSystem.html</url>
+                <labelStyle>lbl2</labelStyle>
+            </leaf>
+
+        </branch>
+
+        <branch name = "Chem Branch 2">
+            <icon>cellTheory.png</icon>
+            <locator>default</locator>
+            <labelStyle>lbl2</labelStyle>
+
+            <leaf name = "Leaf 1">
+                <type>web</type>
+                <url>http://localhost:63342/ALE/ale/course/biology/anatomy/theDigestiveSystem.html</url>
+                <labelStyle>lbl2</labelStyle>
+            </leaf>
+
+        </branch>
+
+    </root>
+
+    <root name = "Maths">
+        <icon>img/styleDark/Courses/mathCourseBtn.png</icon>
+        <locator>default</locator>
+        <labelStyle>lbl2</labelStyle>
+
+        <branch name = "Math Branch 1">
+            <icon>anatomyAndPhysiologyBtn.png</icon>
+            <locator>default</locator>
+            <labelStyle>lbl4</labelStyle>
+
+            <leaf name = "Leaf 1">
+                <type>local</type>
+                <url>res/courses/biology/anatomy/theSkeletalSystem.html</url>
+                <labelStyle>lbl4</labelStyle>
+            </leaf>
+
+            <leaf name = "Leaf 2">
+                <type>local</type>
+                <url>res/courses/biology/anatomy/theReproductiveSystem.html</url>
+                <labelStyle>lbl4</labelStyle>
+            </leaf>
+
+            <leaf name = "Leaf 3">
+                <type>local</type>
+                <url>res/courses/biology/anatomy/theDigestiveSystem.html</url>
+                <labelStyle>lbl4</labelStyle>
+            </leaf>
+
+        </branch>
+
+        <branch name = "Math Branch 2">
+            <icon>cellTheory.png</icon>
+            <locator>default</locator>
+            <labelStyle>lbl4</labelStyle>
+
+            <leaf name = "Leaf 1">
+                <type>web</type>
+                <url>http://localhost:63342/ALE/ale/course/biology/anatomy/theDigestiveSystem.html</url>
+                <labelStyle>lbl4</labelStyle>
+            </leaf>
+
+        </branch>
+
+    </root>
+
+    <root name = "Biology">
+        <icon>img/styleDark/Courses/bioCourseBtn.png</icon>
+        <locator>default</locator>
+        <labelStyle>lbl2</labelStyle>
+
+        <branch name = "Anatomy and Physiology">
+            <icon>img/styleDark/Courses/Biology/anatomyAndPhysiologyBtn.png</icon>
+            <locator>default</locator>
+            <labelStyle>lbl3</labelStyle>
+
+            <leaf name = "The Skeletal System">
+                <type>local</type>
+                <url>res/courses/biology/anatomy/theSkeletalSystem.html</url>
+                <labelStyle>lbl4</labelStyle>
+            </leaf>
+
+            <leaf name = "Reproductive System">
+                <type>local</type>
+                <url>res/courses/biology/anatomy/theReproductiveSystem.html</url>
+                <labelStyle>lbl4</labelStyle>
+            </leaf>
+
+            <leaf name = "The Digestive System">
+                <type>local</type>
+                <url>res/courses/biology/anatomy/theDigestiveSystem.html</url>
+                <labelStyle>lbl4</labelStyle>
+            </leaf>
+
+        </branch>
+
+        <branch name = "Cell Theory">
+            <icon>img/styleDark/Courses/Biology/cellTheoryBtn.png</icon>
+            <locator>default</locator>
+            <labelStyle>lbl2</labelStyle>
+
+            <leaf name = "Leaf 1">
+                <type>web</type>
+                <url>http://localhost:63342/ALE/ale/course/biology/anatomy/theDigestiveSystem.html</url>
+                <labelStyle>lbl4</labelStyle>
+            </leaf>
+
+        </branch>
+
+    </root>
+
+    <root name = "Computer Science">
+        <icon>img/styleDark/Courses/compCourseBtn.png</icon>
+        <locator>default</locator>
+        <labelStyle>lbl4</labelStyle>
+
+        <branch name = "Comp Branch 1">
+            <icon>anatomyAndPhysiologyBtn.png</icon>
+            <locator>default</locator>
+            <labelStyle>lbl4</labelStyle>
+
+            <leaf name = "Leaf 1">
+                <type>local</type>
+                <url>res/courses/biology/anatomy/theSkeletalSystem.html</url>
+                <labelStyle>lbl4</labelStyle>
+            </leaf>
+
+            <leaf name = "Leaf 2">
+                <type>local</type>
+                <url>res/courses/biology/anatomy/theReproductiveSystem.html</url>
+                <labelStyle>lbl4</labelStyle>
+            </leaf>
+
+            <leaf name = "Leaf 3">
+                <type>local</type>
+                <url>res/courses/biology/anatomy/theDigestiveSystem.html</url>
+                <labelStyle>lbl4</labelStyle>
+            </leaf>
+
+        </branch>
+
+        <branch name = "Comp Branch 2">
+            <icon>cellTheory.png</icon>
+            <locator>default</locator>
+            <labelStyle>lbl4</labelStyle>
+
+            <leaf name = "Leaf 1">
+                <type>web</type>
+                <url>http://localhost:63342/ALE/ale/course/biology/anatomy/theDigestiveSystem.html</url>
+                <labelStyle>lbl4</labelStyle>
+            </leaf>
+
+        </branch>
+
+    </root>
+
+    <root name = "Astronomy">
+        <icon>img/styleDark/Courses/astronCourseBtn.png</icon>
+        <locator>default</locator>
+        <labelStyle>lbl2</labelStyle>
+
+    </root>
+
+    <root name = "Geography">
+        <icon>img/styleDark/Courses/geogCourseBtn.png</icon>
+        <locator>default</locator>
+        <labelStyle>lbl2</labelStyle>
+
+    </root>
+
+    <root name = "Economics">
+        <icon>img/styleDark/Courses/economicsCourseBtn.png</icon>
+        <locator>default</locator>
+        <labelStyle>lbl2</labelStyle>
+
+    </root>
+
+    <root name = "History">
+        <icon>img/styleDark/Courses/histCourseBtn.png</icon>
+        <locator>default</locator>
+        <labelStyle>lbl2</labelStyle>
+
+    </root>
+
+    <root name = "Politics">
+        <icon>img/styleDark/Courses/politicsCourseBtn.png</icon>
+        <locator>default</locator>
+        <labelStyle>lbl2</labelStyle>
+
+    </root>
+
+    <root name = "Philosophy">
+        <icon>img/styleDark/Courses/philosophyCourseBtn.png</icon>
+        <locator>default</locator>
+        <labelStyle>lbl2</labelStyle>
+
+    </root>
+
+    <root name = "Art">
+        <icon>img/styleDark/Courses/artCourseBtn.png</icon>
+        <locator>default</locator>
+        <labelStyle>lbl2</labelStyle>
+
+    </root>
+
+</courses>

@@ -1,0 +1,214 @@
+<simulations version = "0.1">
+
+    <group name = "Forces And Motion">
+
+        <simulation>
+            <name>Balancing Act</name>
+            <fontSize>25</fontSize>
+            <url>https://phet.colorado.edu/sims/html/balancing-act/latest/balancing-act_en.html</url>
+        </simulation>
+
+        <simulation>
+            <name>Constant Velocity Vs Constant Acceleration</name>
+            <fontSize>20</fontSize>
+            <url>http://physics.bu.edu/~duffy/HTML5/1Dmotion_constantv_constanta.html</url>
+        </simulation>
+
+        <simulation>
+            <name>Energy Skate Park</name>
+            <fontSize>25</fontSize>
+            <url>https://phet.colorado.edu/sims/html/energy-skate-park-basics/latest/energy-skate-park-basics_en.html</url>
+        </simulation>
+
+        <simulation>
+            <name>Motion Diagram</name>
+            <fontSize>25</fontSize>
+            <url>http://physics.bu.edu/~duffy/HTML5/motion_diagrams.html</url>
+        </simulation>
+
+        <simulation>
+            <name>The Normal Force</name>
+            <fontSize>25</fontSize>
+            <url>ttp://physics.bu.edu/~duffy/HTML5/normal_force.html</url>
+        </simulation>
+
+        <simulation>
+            <name>Galileo's Ramp</name>
+            <fontSize>25</fontSize>
+            <url>http://physics.bu.edu/~duffy/HTML5/Galileos_ramp.html</url>
+        </simulation>
+
+        <simulation>
+            <name>Projectile Motion 1</name>
+            <fontSize>25</fontSize>
+            <url>http://physics.bu.edu/~duffy/HTML5/projectile1.html</url>
+        </simulation>
+
+        <simulation>
+            <name>Projectile Motion 1</name>
+            <fontSize>25</fontSize>
+            <url>http://physics.bu.edu/~duffy/HTML5/projectile1.html</url>
+        </simulation>
+
+        <simulation>
+            <name>Projectile Motion 2</name>
+            <fontSize>25</fontSize>
+            <url>http://physics.bu.edu/~duffy/HTML5/projectile2.html</url>
+        </simulation>
+
+        <simulation>
+            <name>Constant Acceleration</name>
+            <fontSize>25</fontSize>
+            <url>http://physics.bu.edu/~duffy/HTML5/constant_acceleration_lab.html</url>
+        </simulation>
+
+    </group>
+
+    <group name = "Sound And Waves">
+
+        <simulation>
+            <name>Waves On A String</name>
+            <fontSize>25</fontSize>
+            <url>https://phet.colorado.edu/sims/html/wave-on-a-string/latest/wave-on-a-string_en.html</url>
+        </simulation>
+
+        <simulation>
+            <name>A Transverse Wave</name>
+            <fontSize>25</fontSize>
+            <url>http://physics.bu.edu/~duffy/HTML5/wave.html</url>
+        </simulation>
+
+        <simulation>
+            <name>A Longitudinal Wave</name>
+            <fontSize>25</fontSize>
+            <url>http://physics.bu.edu/~duffy/HTML5/longitudinalwave.html</url>
+        </simulation>
+
+    </group>
+
+    <group name = "Heat and Thermodynamics">
+
+        <simulation>
+            <name>Friction</name>
+            <fontSize>25</fontSize>
+            <url>https://phet.colorado.edu/sims/html/friction/latest/friction_en.html</url>
+        </simulation>
+
+    </group>
+
+    <group name = "Light And Radiation">
+
+        <simulation>
+            <name>Molecules And Light</name>
+            <fontSize>25</fontSize>
+            <url>https://phet.colorado.edu/sims/html/molecules-and-light/latest/molecules-and-light_en.html</url>
+        </simulation>
+
+        <simulation>
+            <name>Color Vision</name>
+            <fontSize>25</fontSize>
+            <url>https://phet.colorado.edu/sims/html/color-vision/latest/color-vision_en.html</url>
+        </simulation>
+
+        <simulation>
+            <name>Mirrors</name>
+            <fontSize>25</fontSize>
+            <url>http://physics.bu.edu/~duffy/HTML5/Mirrors.html</url>
+        </simulation>
+
+        <simulation>
+            <name>Lenses</name>
+            <fontSize>25</fontSize>
+            <url>http://physics.bu.edu/~duffy/HTML5/Lenses.html</url>
+        </simulation>
+
+        <simulation>
+            <name>Double Slit</name>
+            <fontSize>25</fontSize>
+            <url>http://physics.bu.edu/~duffy/HTML5/double_slit.html</url>
+        </simulation>
+
+    </group>
+
+    <group name = "Electricity, Magnets And Circuits">
+
+    <simulation>
+        <name>Balloons And Static Electricity</name>
+        <fontSize>20</fontSize>
+        <url>https://phet.colorado.edu/sims/html/balloons-and-static-electricity/latest/balloons-and-static-electricity_en.html</url>
+    </simulation>
+
+    <simulation>
+        <name>Faraday's Law</name>
+        <fontSize>25</fontSize>
+        <url>https://phet.colorado.edu/sims/html/faradays-law/latest/faradays-law_en.html</url>
+    </simulation>
+
+    <simulation>
+        <name>Ohm's Law</name>
+        <fontSize>25</fontSize>
+        <url>https://phet.colorado.edu/sims/html/ohms-law/latest/ohms-law_en.html</url>
+    </simulation>
+
+    </group>
+
+    <group name = "Chemistry">
+
+        <simulation>
+            <name>Acid Base Solutions</name>
+            <fontSize>25</fontSize>
+            <url>https://phet.colorado.edu/sims/html/acid-base-solutions/latest/acid-base-solutions_en.html</url>
+        </simulation>
+
+        <simulation>
+            <name>Balancing Chemical Equations</name>
+            <fontSize>20</fontSize>
+            <url>https://phet.colorado.edu/sims/html/balancing-chemical-equations/latest/balancing-chemical-equations_en.html</url>
+        </simulation>
+
+        <simulation>
+            <name>Beer's Law</name>
+            <fontSize>25</fontSize>
+            <url>https://phet.colorado.edu/sims/html/beers-law-lab/latest/beers-law-lab_en.html</url>
+        </simulation>
+
+        <simulation>
+            <name>Build An Atom</name>
+            <fontSize>25</fontSize>
+            <url>https://phet.colorado.edu/sims/html/build-an-atom/latest/build-an-atom_en.html</url>
+        </simulation>
+
+        <simulation>
+            <name>Concentration</name>
+            <fontSize>25</fontSize>
+            <url>https://phet.colorado.edu/sims/html/concentration/latest/concentration_en.html</url>
+        </simulation>
+
+        <simulation>
+            <name>Molarity</name>
+            <fontSize>25</fontSize>
+            <url>https://phet.colorado.edu/sims/html/molarity/latest/molarity_en.html</url>
+        </simulation>
+
+        <simulation>
+            <name>Molecule Shapes</name>
+            <fontSize>25</fontSize>
+            <url>https://phet.colorado.edu/sims/html/molecule-shapes/latest/molecule-shapes_en.html</url>
+        </simulation>
+
+        <simulation>
+            <name>pH Scale</name>
+            <fontSize>25</fontSize>
+            <url>https://phet.colorado.edu/sims/html/ph-scale/latest/ph-scale_en.html</url>
+        </simulation>
+
+        <simulation>
+            <name>Reactants, Products And Left Overs</name>
+            <fontSize>18</fontSize>
+            <url>https://phet.colorado.edu/sims/html/reactants-products-and-leftovers/latest/reactants-products-and-leftovers_en.html</url>
+        </simulation>
+
+    </group>
+
+
+</simulations>
