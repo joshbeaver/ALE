@@ -4,9 +4,11 @@ import ale.Main;
 import ale.profile.ProfilePane;
 import ale.utils.Format;
 
+import javafx.scene.control.Button;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
+import javax.swing.*;
 import java.io.*;
 import java.sql.*;
 
@@ -139,12 +141,13 @@ public class Interaction {
                 psUpdateProfilePicture.executeUpdate();
                 croppedImage.deleteOnExit();
             }
-
         }catch (SQLException sqlExcep){
             sqlExcep.printStackTrace();
         }catch (IOException ioExcep){
             ioExcep.printStackTrace();
         }finally {
+            JOptionPane.showMessageDialog(null, "Profile picture will change next time you start the program");
+
             try{
                 dbCon.close();
                 closeDBCon();

@@ -98,6 +98,9 @@ public class Main extends Application {
     MenuBar notebookMenuBar;
     Tooltip notebookToolTip;
 
+
+    ProfilePane profilePane;
+
     //Simulations
     ScrollPane simsPanel;
     Tooltip simsToolTip;
@@ -256,12 +259,13 @@ public class Main extends Application {
         // <----- Profile ----->
         Tooltip profileToolTip = new Tooltip("Profile");
 
+        profilePane = new ProfilePane();
+
         profileBtn = new Button();
         profileBtn.getStyleClass().add("profileBtn");
         profileBtn.setTooltip(profileToolTip);
         profileBtn.setOnAction(e -> {
             resetBtns();
-            ProfilePane profilePane = new ProfilePane();
             profilePane.setProfilePane(superUser, primaryStage.getWidth() - (navigationPane.getWidth() + 15),
                     primaryStage.getHeight() - (topPane.getHeight()), rootPane, primaryStage);
             profileBtn.getStyleClass().add("profileBtnSelected");

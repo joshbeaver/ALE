@@ -45,116 +45,121 @@ public class ProfilePane {
     public void setProfilePane(String superUser, double prefWidth, double prefHeight, BorderPane parentPane,
                                Stage primaryStage){
 
-        this.superUser = superUser;
+        if(profilePane == null){
+            this.superUser = superUser;
 
-        profilePictureBtn = new Button();
-        profilePictureBtn.getStyleClass().add("profilePictureBtn");
-        profilePictureBtn.setMaxSize(200, 200);
-        profilePictureBtn.setOnAction(e -> {
-            interaction.uploadProfilePicture(superUser, primaryStage);
-        });
+            profilePictureBtn = new Button();
+            profilePictureBtn.getStyleClass().add("profilePictureBtn");
+            profilePictureBtn.setMaxSize(200, 200);
+            profilePictureBtn.setOnAction(e -> {
+                interaction.uploadProfilePicture(superUser, primaryStage);
+            });
 
-        FileOutputStream profilePictureFOS = null;
+            FileOutputStream profilePictureFOS = null;
 
-        Image ppImage = null;
+            Image ppImage = null;
 
-        setProfilePicture();
+            setProfilePicture();
 
-        String profileUserName = xmlParser.getSuperUser();
+            String profileUserName = xmlParser.getSuperUser();
 
-        String profileEmail = xmlParser.getEmail();
-        String profileAge = xmlParser.getAge();
-        String profileSchool = xmlParser.getSchool();
-        String profileCountry = "";
-        String profileCity = "";
+            String profileEmail = xmlParser.getEmail();
+            String profileAge = xmlParser.getAge();
+            String profileSchool = xmlParser.getSchool();
+            String profileCountry = "";
+            String profileCity = "";
 
-        Label usernameLbl = new Label("Username: ");
-        usernameLbl.getStyleClass().add("profileInfoLbl");
+            Label usernameLbl = new Label("Username: ");
+            usernameLbl.getStyleClass().add("profileInfoLbl");
 
-        usernameContentLbl = new Label(profileUserName);
-        usernameContentLbl.getStyleClass().add("profileInfoContentLbl");
+            usernameContentLbl = new Label(profileUserName);
+            usernameContentLbl.getStyleClass().add("profileInfoContentLbl");
 
-        HBox usernameBox = new HBox();
-        usernameBox.getChildren().addAll(usernameLbl, usernameContentLbl);
+            HBox usernameBox = new HBox();
+            usernameBox.getChildren().addAll(usernameLbl, usernameContentLbl);
 
-        Label emailLbl = new Label("Email: ");
-        emailLbl.getStyleClass().add("profileInfoLbl");
+            Label emailLbl = new Label("Email: ");
+            emailLbl.getStyleClass().add("profileInfoLbl");
 
-        emailContentLbl = new Label(profileEmail);
-        emailContentLbl.getStyleClass().add("profileInfoContentLbl");
-        emailContentLbl.setOnMouseClicked(e -> {
+            emailContentLbl = new Label(profileEmail);
+            emailContentLbl.getStyleClass().add("profileInfoContentLbl");
+            emailContentLbl.setOnMouseClicked(e -> {
 
-        });
+            });
 
-        HBox emailBox = new HBox();
-        emailBox.getChildren().addAll(emailLbl, emailContentLbl);
+            HBox emailBox = new HBox();
+            emailBox.getChildren().addAll(emailLbl, emailContentLbl);
 
-        Label ageLbl = new Label("Age: ");
-        ageLbl.getStyleClass().add("profileInfoLbl");
+            Label ageLbl = new Label("Age: ");
+            ageLbl.getStyleClass().add("profileInfoLbl");
 
-        ageContentLbl = new Label();
-        if(Integer.parseInt(profileAge) > 0){
-            ageContentLbl.setText(profileAge);
-        }else{
-            ageContentLbl.setText("Set");
-        }
-        ageContentLbl.getStyleClass().add("profileInfoContentLbl");
-        ageContentLbl.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                if (event.getButton() == MouseButton.PRIMARY){
-
-                }
+            ageContentLbl = new Label();
+            if(Integer.parseInt(profileAge) > 0){
+                ageContentLbl.setText(profileAge);
+            }else{
+                ageContentLbl.setText("Set");
             }
-        });
+            ageContentLbl.getStyleClass().add("profileInfoContentLbl");
+            ageContentLbl.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    if (event.getButton() == MouseButton.PRIMARY){
 
-        HBox ageBox = new HBox();
-        ageBox.getChildren().addAll(ageLbl, ageContentLbl);
+                    }
+                }
+            });
 
-        Label schoolLbl = new Label("School: ");
-        schoolLbl.getStyleClass().add("profileInfoLbl");
+            HBox ageBox = new HBox();
+            ageBox.getChildren().addAll(ageLbl, ageContentLbl);
 
-        schoolContentLbl = new Label();
-        if (profileSchool.length() > 0){
-            schoolContentLbl.setText(profileSchool);
-        }else {
-            schoolContentLbl.setText("Set");
+            Label schoolLbl = new Label("School: ");
+            schoolLbl.getStyleClass().add("profileInfoLbl");
+
+            schoolContentLbl = new Label();
+            if (profileSchool.length() > 0){
+                schoolContentLbl.setText(profileSchool);
+            }else {
+                schoolContentLbl.setText("Set");
+            }
+            schoolContentLbl.getStyleClass().add("profileInfoContentLbl");
+
+            HBox schoolBox = new HBox();
+            schoolBox.getChildren().addAll(schoolLbl, schoolContentLbl);
+
+            profileGridPane = new GridPane();
+            profileGridPane.getStyleClass().add("gridPane");
+            profileGridPane.setVgap(5);
+            profileGridPane.setHgap(5);
+            profileGridPane.setGridLinesVisible(false);
+            profileGridPane.setPrefWidth(prefWidth);
+            profileGridPane.setPrefHeight(prefHeight);
+            profileGridPane.setAlignment(Pos.TOP_LEFT);
+            profileGridPane.setPadding(new Insets(10, 0, 0, 6));
+
+            profileGridPane.setRowIndex(profilePictureBtn, 0);
+            profileGridPane.setColumnIndex(profilePictureBtn, 0);
+            profileGridPane.setRowSpan(profilePictureBtn, 6);
+            profileGridPane.setRowIndex(usernameBox, 0);
+            profileGridPane.setColumnIndex(usernameBox, 1);
+            profileGridPane.setRowIndex(emailBox, 1);
+            profileGridPane.setColumnIndex(emailBox, 1);
+            profileGridPane.setRowIndex(ageBox, 2);
+            profileGridPane.setColumnIndex(ageBox, 1);
+            profileGridPane.setRowIndex(schoolBox, 3);
+            profileGridPane.setColumnIndex(schoolBox, 1);
+
+            profileGridPane.getChildren().addAll(profilePictureBtn, usernameBox, emailBox, ageBox, schoolBox);
+
+            profilePane = new ScrollPane();
+            profilePane.getStyleClass().add("scrollPane");
+            profilePane.setContent(profileGridPane);
         }
-        schoolContentLbl.getStyleClass().add("profileInfoContentLbl");
-
-        HBox schoolBox = new HBox();
-        schoolBox.getChildren().addAll(schoolLbl, schoolContentLbl);
-
-        profileGridPane = new GridPane();
-        profileGridPane.getStyleClass().add("gridPane");
-        profileGridPane.setVgap(5);
-        profileGridPane.setHgap(5);
-        profileGridPane.setGridLinesVisible(false);
-        profileGridPane.setPrefWidth(prefWidth);
-        profileGridPane.setPrefHeight(prefHeight);
-        profileGridPane.setAlignment(Pos.TOP_LEFT);
-        profileGridPane.setPadding(new Insets(10, 0, 0, 6));
-
-        profileGridPane.setRowIndex(profilePictureBtn, 0);
-        profileGridPane.setColumnIndex(profilePictureBtn, 0);
-        profileGridPane.setRowSpan(profilePictureBtn, 6);
-        profileGridPane.setRowIndex(usernameBox, 0);
-        profileGridPane.setColumnIndex(usernameBox, 1);
-        profileGridPane.setRowIndex(emailBox, 1);
-        profileGridPane.setColumnIndex(emailBox, 1);
-        profileGridPane.setRowIndex(ageBox, 2);
-        profileGridPane.setColumnIndex(ageBox, 1);
-        profileGridPane.setRowIndex(schoolBox, 3);
-        profileGridPane.setColumnIndex(schoolBox, 1);
-
-        profileGridPane.getChildren().addAll(profilePictureBtn, usernameBox, emailBox, ageBox, schoolBox);
-
-        profilePane = new ScrollPane();
-        profilePane.getStyleClass().add("scrollPane");
-        profilePane.setContent(profileGridPane);
 
         parentPane.setCenter(profilePane);
+
     }
+
+
 
     public void setProfilePicture() {
 
