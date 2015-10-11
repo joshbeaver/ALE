@@ -132,6 +132,67 @@ public class Configuration {
         }
     }
 
+    public void resetStayLoggedIn(){
+        /** Modifies the config xml
+         * To auto login the user
+         * And remember their credentials
+         */
+
+        DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
+        try {
+            File xmlFile = new File("config/config.xml");
+
+            DocumentBuilder documentBuilder = builderFactory.newDocumentBuilder();
+            Document document = documentBuilder.parse(xmlFile);
+            document.normalize();
+
+            Node rememberNode = document.getElementsByTagName("remember").item(0);
+            Element rememberElement = (Element)rememberNode;
+
+            Node stateNode = rememberElement.getAttributeNode("state");
+            stateNode.setTextContent("false");
+
+            Node usernameNode = rememberElement.getElementsByTagName("user").item(0);
+            Element usernameElement = (Element)usernameNode;
+            usernameElement.setTextContent("");
+
+
+            Node passwordNode = rememberElement.getElementsByTagName("pass").item(0);
+            Element passwordElement = (Element)passwordNode;
+            passwordElement.setTextContent("");
+
+            TransformerFactory transformerFactory =
+                    TransformerFactory.newInstance();
+            Transformer transformer = transformerFactory.newTransformer();
+            DOMSource source = new DOMSource(document);
+
+            StreamResult result = new StreamResult(new File("config/config.xml"));
+            transformer.transform(source, result);
+
+
+        }catch (ParserConfigurationException parserConfigExcep){
+            System.out.println("<----- Parser Configuration Exception in Auto Login ----->");
+            parserConfigExcep.printStackTrace();
+            System.out.println("<---------->\n");
+        }catch (IOException ioExcep){
+            System.out.println("<----- IO Exception in in Auto Login ----->");
+            ioExcep.printStackTrace();
+            System.out.println("<---------->\n");
+        }catch (SAXException saxExcep){
+            System.out.println("<----- SAX Exception in in Auto Login ----->");
+            saxExcep.printStackTrace();
+            System.out.println("<---------->\n");
+        }catch (TransformerConfigurationException transformerConfigExcep){
+            System.out.println("<----- Transformer Config Exception in in Auto Login ----->");
+            transformerConfigExcep.printStackTrace();
+            System.out.println("<---------->\n");
+        }catch (TransformerException transformerExcep) {
+            System.out.println("<----- Transformer Config Exception in in Auto Login ----->");
+            transformerExcep.printStackTrace();
+            System.out.println("<---------->\n");
+        }
+    }
+
     public String getStyle(){
         String style = "";
 

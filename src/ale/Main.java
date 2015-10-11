@@ -759,6 +759,13 @@ public class Main extends Application {
         Label appearanceSettingsLbl = new Label("Appearance");
         appearanceSettingsLbl.getStyleClass().add("lbl");
 
+        Button logoutBtn = new Button("Log Out");
+        logoutBtn.getStyleClass().add("btn");
+        logoutBtn.setOnAction(e -> {
+            config.resetStayLoggedIn();
+            systemClose();
+        });
+
         settingsGridPanel = new GridPane();
         settingsGridPanel.getStyleClass().add("gridPane");
         settingsGridPanel.setPadding(defaultInsets);
@@ -768,7 +775,10 @@ public class Main extends Application {
         settingsGridPanel.setRowIndex(appearanceSettingsLbl, 0);
         settingsGridPanel.setColumnIndex(appearanceSettingsLbl, 0);
 
-        settingsGridPanel.getChildren().addAll(appearanceSettingsLbl);
+        settingsGridPanel.setRowIndex(logoutBtn, 5);
+        settingsGridPanel.setColumnIndex(logoutBtn, 0);
+
+        settingsGridPanel.getChildren().addAll(appearanceSettingsLbl, logoutBtn);
 
         settingsPanel = new ScrollPane();
         settingsPanel.getStyleClass().add("scrollPane");

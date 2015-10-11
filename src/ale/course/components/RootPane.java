@@ -1,6 +1,6 @@
 package ale.course.components;
 
-import ale.ImageLocatorType;
+import ale.LocatorType;
 import ale.Main;
 import javafx.geometry.Insets;
 import javafx.scene.control.ScrollPane;
@@ -56,13 +56,13 @@ public class RootPane {
                 Node iconNode = rootElement.getElementsByTagName("icon").item(0);
                 Node locatorNode = rootElement.getElementsByTagName("locator").item(0);
 
-                ImageLocatorType imageLocatorType = null;
+                LocatorType locatorType = null;
 
-                if(locatorNode.getTextContent().equals("default"))imageLocatorType = ImageLocatorType.DEFAULT;
+                if(locatorNode.getTextContent().equals("default")) locatorType = LocatorType.DEFAULT;
 
                 InputStream imageIS = null;
 
-                switch (imageLocatorType){
+                switch (locatorType){
                     case DEFAULT:
                         imageIS = Main.class.getResourceAsStream(iconNode.getTextContent());
                         break;
