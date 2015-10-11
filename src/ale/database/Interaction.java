@@ -1,6 +1,7 @@
 package ale.database;
 
 import ale.Main;
+import ale.profile.ProfilePane;
 import ale.utils.Format;
 
 import javafx.stage.FileChooser;
@@ -160,8 +161,8 @@ public class Interaction {
                 ioExcep.printStackTrace();
                 System.out.println("<---------->\n");
             }
-            Main main = new Main();
-            main.setProfilePicture();
+            ProfilePane profilePane = new ProfilePane();
+            profilePane.setProfilePicture();
         }
     }
 

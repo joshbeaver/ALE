@@ -7,6 +7,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.xml.sax.SAXException;
 
+import javax.swing.*;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -62,6 +63,9 @@ public class Configuration {
         }catch (IOException ioExcep){
             System.out.println("<----- IO Exception in in Auto Login ----->");
             ioExcep.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Java IO Exception. Possible Causes: \n" +
+                    "- Missing config file\n" +
+                    "- Invalid config file");
             System.out.println("<---------->\n");
         }catch (SAXException saxExcep){
             System.out.println("<----- SAX Exception in in Auto Login ----->");

@@ -4,6 +4,8 @@ import ale.chat.Client;
 import ale.course.components.RootPane;
 import ale.database.Interaction;
 import ale.database.Search;
+import ale.dialog.ConfirmationDialog;
+import ale.profile.ProfilePane;
 import ale.simulation.SimulationPane;
 import ale.utils.Misc;
 import ale.xml.XMLParser;
@@ -43,6 +45,7 @@ import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.apache.poi.xwpf.usermodel.XWPFParagraph;
 import org.apache.poi.xwpf.usermodel.XWPFRun;
 
+import javax.swing.*;
 import java.io.*;
 import java.net.MalformedURLException;
 import java.sql.*;
@@ -88,19 +91,6 @@ public class Main extends Application {
     TextField chatRoomField;
     TextArea messageArea;
     TextArea messageInputArea;
-
-    //Profile
-    ScrollPane profilePane;
-    GridPane profileGridPane;
-    Tooltip profileToolTip;
-    Label usernameContentLbl;
-    Label ageContentLbl;
-    Label emailContentLbl;
-    Label schoolContentLbl;
-    Button profilePictureBtn;
-
-    //Courses
-    Tooltip courseToolTip;
 
     //Notebook
     ScrollPane notebookPane;
@@ -264,19 +254,21 @@ public class Main extends Application {
         });
 
         // <----- Profile ----->
-        profileToolTip = new Tooltip("Profile");
+        Tooltip profileToolTip = new Tooltip("Profile");
 
         profileBtn = new Button();
         profileBtn.getStyleClass().add("profileBtn");
         profileBtn.setTooltip(profileToolTip);
         profileBtn.setOnAction(e -> {
             resetBtns();
-            rootPane.setCenter(profilePane);
+            ProfilePane profilePane = new ProfilePane();
+            profilePane.setProfilePane(superUser, primaryStage.getWidth() - (navigationPane.getWidth() + 15),
+                    primaryStage.getHeight() - (topPane.getHeight()), rootPane, primaryStage);
             profileBtn.getStyleClass().add("profileBtnSelected");
         });
 
         // <----- Courses ----->
-        courseToolTip = new Tooltip("Courses");
+        Tooltip courseToolTip = new Tooltip("Courses");
 
         coursesBtn = new Button("");
         coursesBtn.getStyleClass().add("coursesBtn");
@@ -502,116 +494,6 @@ public class Main extends Application {
         splashScreen.setProgress(0.3);
         System.out.println("Loading at 30%");
 
-//-------------------------------------------------------------------------------------------------> Profile Pane Start
-
-        profilePictureBtn = new Button();
-        profilePictureBtn.getStyleClass().add("profilePictureBtn");
-        profilePictureBtn.setMaxSize(200, 200);
-        profilePictureBtn.setOnAction(e -> {
-            database.uploadProfilePicture(superUser, primaryStage);
-        });
-
-        FileOutputStream profilePictureFOS = null;
-
-        Image ppImage = null;
-
-        setProfilePicture();
-
-        String profileUserName = xmlParser.getSuperUser();
-
-        String profileEmail = xmlParser.getEmail();
-        String profileAge = xmlParser.getAge();
-        String profileSchool = xmlParser.getSchool();
-        String profileCountry = "";
-        String profileCity = "";
-
-        Label usernameLbl = new Label("Username: ");
-        usernameLbl.getStyleClass().add("profileInfoLbl");
-
-        usernameContentLbl = new Label(profileUserName);
-        usernameContentLbl.getStyleClass().add("profileInfoContentLbl");
-
-        HBox usernameBox = new HBox();
-        usernameBox.getChildren().addAll(usernameLbl, usernameContentLbl);
-
-        Label emailLbl = new Label("Email: ");
-        emailLbl.getStyleClass().add("profileInfoLbl");
-
-        emailContentLbl = new Label(profileEmail);
-        emailContentLbl.getStyleClass().add("profileInfoContentLbl");
-        emailContentLbl.setOnMouseClicked(e -> {
-
-        });
-
-        HBox emailBox = new HBox();
-        emailBox.getChildren().addAll(emailLbl, emailContentLbl);
-
-        Label ageLbl = new Label("Age: ");
-        ageLbl.getStyleClass().add("profileInfoLbl");
-
-        ageContentLbl = new Label();
-        if(Integer.parseInt(profileAge) > 0){
-            ageContentLbl.setText(profileAge);
-        }else{
-            ageContentLbl.setText("Set");
-        }
-        ageContentLbl.getStyleClass().add("profileInfoContentLbl");
-        ageContentLbl.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                if (event.getButton() == MouseButton.PRIMARY){
-
-                }
-            }
-        });
-
-        HBox ageBox = new HBox();
-        ageBox.getChildren().addAll(ageLbl, ageContentLbl);
-
-        Label schoolLbl = new Label("School: ");
-        schoolLbl.getStyleClass().add("profileInfoLbl");
-
-        schoolContentLbl = new Label();
-        if (profileSchool.length() > 0){
-            schoolContentLbl.setText(profileSchool);
-        }else {
-            schoolContentLbl.setText("Set");
-        }
-        schoolContentLbl.getStyleClass().add("profileInfoContentLbl");
-
-        HBox schoolBox = new HBox();
-        schoolBox.getChildren().addAll(schoolLbl, schoolContentLbl);
-
-        profileGridPane = new GridPane();
-        profileGridPane.getStyleClass().add("gridPane");
-        profileGridPane.setVgap(5);
-        profileGridPane.setHgap(5);
-        profileGridPane.setGridLinesVisible(false);
-        profileGridPane.setPrefWidth(width - 208);
-        profileGridPane.setPrefHeight(860);
-        profileGridPane.setAlignment(Pos.TOP_LEFT);
-        profileGridPane.setPadding(new Insets(10, 0, 0, 6));
-
-        profileGridPane.setRowIndex(profilePictureBtn, 0);
-        profileGridPane.setColumnIndex(profilePictureBtn, 0);
-        profileGridPane.setRowSpan(profilePictureBtn, 6);
-        profileGridPane.setRowIndex(usernameBox, 0);
-        profileGridPane.setColumnIndex(usernameBox, 1);
-        profileGridPane.setRowIndex(emailBox, 1);
-        profileGridPane.setColumnIndex(emailBox, 1);
-        profileGridPane.setRowIndex(ageBox, 2);
-        profileGridPane.setColumnIndex(ageBox, 1);
-        profileGridPane.setRowIndex(schoolBox, 3);
-        profileGridPane.setColumnIndex(schoolBox, 1);
-
-        profileGridPane.getChildren().addAll(profilePictureBtn, usernameBox, emailBox, ageBox, schoolBox);
-
-        profilePane = new ScrollPane();
-        profilePane.getStyleClass().add("scrollPane");
-        profilePane.setContent(profileGridPane);
-
-//---------------------------------------------------------------------------------------------------> Profile Pane End
-
         splashScreen.setProgress(0.4);
         System.out.println("Loading at 40%");
 
@@ -762,8 +644,11 @@ public class Main extends Application {
         Button logoutBtn = new Button("Log Out");
         logoutBtn.getStyleClass().add("btn");
         logoutBtn.setOnAction(e -> {
-            config.resetStayLoggedIn();
-            systemClose();
+
+            if(JOptionPane.showConfirmDialog(null, "Are you sure you want to logout") == 0){
+                config.resetStayLoggedIn();
+                systemClose();
+            }
         });
 
         settingsGridPanel = new GridPane();
@@ -811,8 +696,6 @@ public class Main extends Application {
 
         //dashboardPane.setPrefWidth(primaryStage.getWidth() - (navigationPane.getWidth() + chatBox.getWidth()));
         //dashboardPane.setPrefHeight(primaryStage.getHeight() - topPane.getHeight());
-
-        profileGridPane.setPrefWidth(primaryStage.getWidth() - (navigationPane.getWidth() + 15));
 
         textEditor.setPrefWidth(primaryStage.getWidth() - (navigationPane.getWidth()));
         textEditor.setPrefHeight(primaryStage.getHeight() - topPane.getHeight());
@@ -910,76 +793,6 @@ public class Main extends Application {
 
     public void setProgramHeight(double programHeight) {
         this.programHeight = programHeight;
-    }
-
-    public void setProfilePicture(){
-        FileOutputStream profilePictureFOS = null;
-
-        Image ppImage = null;
-
-        try{
-            database.connectToDB();
-            Connection dbCon = database.getDBCon();
-
-            String selectProfilePictureSQL = "SELECT profilePicture" +
-                    " FROM userInfo" +
-                    " WHERE username = " + "\'" + superUser + "\'" + ";";
-            PreparedStatement psSelectProfilePicture = dbCon.prepareStatement(selectProfilePictureSQL);
-            ResultSet rsSelectProfilePicture = psSelectProfilePicture.executeQuery();
-
-            File file = new File("profilePicture.jpg");
-            profilePictureFOS = new FileOutputStream(file);
-
-            while (rsSelectProfilePicture.next()){
-                byte[] buffer = new byte[1];
-                InputStream profilePictureIS = rsSelectProfilePicture.getBinaryStream(1);
-                if(profilePictureIS != null){
-                    while (profilePictureIS.read(buffer) > 0){
-                        profilePictureFOS.write(buffer);
-
-                        if(file != null){
-                            //profilePictureBtn.getStyleClass().remove("profilePictureBtn");
-                            profilePictureBtn.setStyle("-fx-graphic: url(\"" + file.toURI().toURL() +"\"); " +
-                                    "-fx-background-color: transparent;" +
-                                    "-fx-border-radius: 0em;" +
-                                    "-fx-background-radius: 0em;" +
-                                    "-fx-graphic-height: 100px;");
-                            if(profileGridPane != null && profilePictureBtn != null){
-                                profileGridPane.getChildren().removeAll(profilePictureBtn);
-                                profileGridPane.getChildren().addAll(profilePictureBtn);
-                            }
-
-                            file.deleteOnExit();
-
-                            /*
-                            final ImageView profilePictureImageView = new ImageView();
-                            final Image profilePictureImage = new Image(Main.class.getResourceAsStream("profilePicture.jpg"));
-                            profilePictureImageView.setImage(profilePictureImage);
-
-                            profilePictureBtn.setGraphic(profilePictureImageView);
-                            */
-                        }
-                    }
-                }
-            }
-
-            profilePictureFOS.close();
-            dbCon.close();
-        }catch (SQLException sqlExcep){
-            System.out.println("<----- SQL Exception in Set Profile Picture ----->");
-            sqlExcep.printStackTrace();
-            System.out.println("<---------->\n");
-        }catch (MalformedURLException urlExcep){
-            System.out.println("<----- Malformed URL Exception in Set Profile Picture ----->");
-            urlExcep.printStackTrace();
-            System.out.println("<---------->\n");
-        }catch (IOException ioExcep){
-            System.out.println("<----- IO Exception in Set Profile Picture ----->");
-            ioExcep.printStackTrace();
-            System.out.println("<---------->\n");
-        }finally {
-            database.closeDBCon();
-        }
     }
 
     public Main() {}
