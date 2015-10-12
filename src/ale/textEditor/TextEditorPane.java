@@ -28,7 +28,7 @@ public class TextEditorPane {
                                          Stage primaryStage){
 
         if(textEditorPane == null){
-            
+
             textEditor = new HTMLEditor();
 
             /** Prevents Scroll on Space Pressed */
@@ -74,6 +74,10 @@ public class TextEditorPane {
         tmpRun.setText(teUtils.stripHTMLTags(textEditor.getHtmlText()));
         tmpRun.setFontSize(12);
         teUtils.saveDocument(document, primaryStage);
+    }
+
+    public static void saveNote(Stage primaryStage){
+        teUtils.saveNote(textEditor.getHtmlText(), primaryStage);
     }
 
 }

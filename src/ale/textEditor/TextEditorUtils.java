@@ -7,6 +7,7 @@ import org.apache.poi.xwpf.usermodel.XWPFDocument;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -36,6 +37,27 @@ public class TextEditorUtils {
                 file = saveDocument.showSaveDialog(stage);
             }
             document.write(new FileOutputStream(file));
+
+        }catch(IOException ioExcep){
+            System.out.println("<----- IO Exception in Save Document ----->");
+            ioExcep.printStackTrace();
+            System.out.println("<---------->\n");
+        }
+    }
+
+    public static void saveNote(String htmlText, Stage primaryStage){
+        try {
+            FileChooser saveDocument = new FileChooser();
+            saveDocument.setTitle("Save Document");
+            saveDocument.getExtensionFilters().add(new FileChooser.ExtensionFilter("Note (*.md)", "*.md"));
+            File file = null;
+            if (primaryStage != null){
+                file = saveDocument.showSaveDialog(primaryStage);
+            }
+
+            FileWriter fileWriter = new FileWriter(file);
+            fileWriter.write(htmlText);
+            fileWriter.close();
 
         }catch(IOException ioExcep){
             System.out.println("<----- IO Exception in Save Document ----->");

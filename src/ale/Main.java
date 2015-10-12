@@ -514,7 +514,10 @@ public class Main extends Application {
 
         MenuItem saveMenuItem = new MenuItem("Save");
 
-        MenuItem saveAsNotebooMenuItem = new MenuItem("Save As Notebook");
+        MenuItem saveAsNoteMenuItem = new MenuItem("Save As Note");
+        saveAsNoteMenuItem.setOnAction(e -> {
+            textEditorPane2.saveNote(primaryStage);
+        });
 
         MenuItem saveAsDocMenuItem = new MenuItem("Save As Document");
         saveAsDocMenuItem.setOnAction(e -> {
@@ -522,7 +525,7 @@ public class Main extends Application {
         });
 
         Menu saveAsMenuItem = new Menu("Save As");
-        saveAsMenuItem.getItems().addAll(saveAsNotebooMenuItem, saveAsDocMenuItem);
+        saveAsMenuItem.getItems().addAll(saveAsNoteMenuItem, saveAsDocMenuItem);
 
         Menu fileMenu = new Menu("File");
         fileMenu.getItems().addAll(newMenuItem, saveMenuItem, saveAsMenuItem);
