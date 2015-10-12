@@ -7,6 +7,7 @@ import ale.database.Search;
 import ale.dialog.ConfirmationDialog;
 import ale.profile.ProfilePane;
 import ale.simulation.SimulationPane;
+import ale.textEditor.TextEditorPane;
 import ale.utils.Misc;
 import ale.xml.XMLParser;
 import ale.tools.calculators.Calculator;
@@ -106,10 +107,9 @@ public class Main extends Application {
     Tooltip simsToolTip;
 
     //Text Editor
-    BorderPane textEditorPane;
     Tooltip textEditorToolTip;
     HTMLEditor textEditor;
-    Button saveDocBtn;
+    TextEditorPane textEditorPane;
 
     //Wolfram Alpha
     ScrollPane wolframPane;
@@ -325,13 +325,14 @@ public class Main extends Application {
         // <----- Text Editor ----->
         textEditorToolTip = new Tooltip("Text Editor");
 
+        textEditorPane = new TextEditorPane();
         textEditorBtn = new Button();
         textEditorBtn.getStyleClass().add("textEditorBtn");
         textEditorBtn.setTooltip(textEditorToolTip);
         textEditorBtn.setOnAction(e -> {
             resetBtns();
-            rootPane.setCenter(textEditorPane);
-            miscContainer.getChildren().addAll(saveDocBtn);
+            textEditorPane.setTextEditorPane(primaryStage.getWidth() - (navigationPane.getWidth() + 15),
+                    primaryStage.getHeight() - (topPane.getHeight()), miscContainer, rootPane, primaryStage);
             textEditorBtn.getStyleClass().add("textEditorBtnSelected");
         });
 
@@ -503,9 +504,12 @@ public class Main extends Application {
 
 //-------------------------------------------------------------------------------------------------> Notebook Pane Start
 
+        TextEditorPane textEditorPane2 = new TextEditorPane();
+
         MenuItem newMenuItem = new MenuItem("New");
         newMenuItem.setOnAction(e -> {
-            notebookPane.setContent(textEditorPane);
+            textEditorPane2.setTextEditorPane(primaryStage.getWidth() - (navigationPane.getWidth() + 15),
+                    primaryStage.getHeight() - (topPane.getHeight()), miscContainer, rootPane, primaryStage);
         });
 
         MenuItem saveMenuItem = new MenuItem("Save");
@@ -514,13 +518,7 @@ public class Main extends Application {
 
         MenuItem saveAsDocMenuItem = new MenuItem("Save As Document");
         saveAsDocMenuItem.setOnAction(e -> {
-            XWPFDocument document = new XWPFDocument();
-            XWPFParagraph tmpParagraph = document.createParagraph();
-            XWPFRun tmpRun = tmpParagraph.createRun();
-
-            tmpRun.setText(utils.stripHTMLTags(textEditor.getHtmlText()));
-            tmpRun.setFontSize(12);
-            Misc.saveDocument(document, primaryStage);
+            textEditorPane2.saveDocument(primaryStage);
         });
 
         Menu saveAsMenuItem = new Menu("Save As");
@@ -553,43 +551,6 @@ public class Main extends Application {
 
         splashScreen.setProgress(0.6);
         System.out.println("Loading at 60%");
-
-//---------------------------------------------------------------------------------------------> Text Editor Pane Start
-
-        textEditor = new HTMLEditor();
-
-        /** Prevents Scroll on Space Pressed */
-        textEditor.addEventFilter(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>() {
-            @Override
-            public void handle(KeyEvent event) {
-                if (event.getEventType() == KeyEvent.KEY_PRESSED) {
-                    if (event.getCode() == KeyCode.SPACE) {
-                        event.consume();
-                    }
-                }
-            }
-        });
-
-        XWPFDocument document = new XWPFDocument();
-        XWPFParagraph tmpParagraph = document.createParagraph();
-        XWPFRun tmpRun = tmpParagraph.createRun();
-
-        Tooltip saveToolTip = new Tooltip("Save");
-
-        saveDocBtn = new Button();
-        saveDocBtn.getStyleClass().add("saveBtn");
-        saveDocBtn.setTooltip(saveToolTip);
-        saveDocBtn.setOnAction(e -> {
-            tmpRun.setText(utils.stripHTMLTags(textEditor.getHtmlText()));
-            tmpRun.setFontSize(12);
-            Misc.saveDocument(document, primaryStage);
-        });
-
-        textEditorPane = new BorderPane();
-        textEditorPane.getStyleClass().add("scrollPane");
-        textEditorPane.setCenter(textEditor);
-
-//-----------------------------------------------------------------------------------------------> Text Editor Pane End
 
         splashScreen.setProgress(0.7);
         System.out.println("Loading at 70%");
@@ -701,9 +662,6 @@ public class Main extends Application {
         //dashboardPane.setPrefWidth(primaryStage.getWidth() - (navigationPane.getWidth() + chatBox.getWidth()));
         //dashboardPane.setPrefHeight(primaryStage.getHeight() - topPane.getHeight());
 
-        textEditor.setPrefWidth(primaryStage.getWidth() - (navigationPane.getWidth()));
-        textEditor.setPrefHeight(primaryStage.getHeight() - topPane.getHeight());
-
         wikipediaPane.setPrefWidth(primaryStage.getWidth() - (navigationPane.getWidth() + 15));
         wikipediaPane.setPrefHeight(primaryStage.getHeight() - topPane.getHeight());
 
@@ -783,7 +741,7 @@ public class Main extends Application {
         wikipediaBtn.getStyleClass().removeAll("wikipediaBtnSelected");
         settingsBtn.getStyleClass().removeAll("settingsBtnSelected");
 
-        miscContainer.getChildren().removeAll(saveDocBtn, notebookMenuBar);
+        miscContainer.getChildren().removeAll(notebookMenuBar);
     }
 
     private void search(String searchQuery){
