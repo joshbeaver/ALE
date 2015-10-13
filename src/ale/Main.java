@@ -508,13 +508,16 @@ public class Main extends Application {
         TextEditorPane notebookTextEditorPane = new TextEditorPane();
         TextEditorUtils textEditorUtils = new TextEditorUtils();
 
-        MenuItem newMenuItem = new MenuItem("New");
-        newMenuItem.setOnAction(e -> {
+        MenuItem newTextNoteMenuItem = new MenuItem("New Text Note");
+        newTextNoteMenuItem.setOnAction(e -> {
             notebookTextEditorPane.clearTextEditorPane();
             notebookTextEditorPane.setTextEditorPane(null, false, primaryStage.getWidth() - (navigationPane.getWidth()
                             + 15), primaryStage.getHeight() - (topPane.getHeight()), miscContainer, rootPane,
                     primaryStage);
         });
+
+        Menu newMenuItem = new Menu("New");
+        newMenuItem.getItems().addAll(newTextNoteMenuItem);
 
         MenuItem openMenuItem = new MenuItem("Open");
         openMenuItem.setOnAction(e -> {
@@ -533,18 +536,21 @@ public class Main extends Application {
             notebookTextEditorPane.saveAsNote(primaryStage);
         });
 
-        MenuItem saveAsDocMenuItem = new MenuItem("Save As Document");
-        saveAsDocMenuItem.setOnAction(e -> {
+        Menu saveAsMenuItem = new Menu("Save As");
+        saveAsMenuItem.getItems().addAll(saveAsNoteMenuItem);
+
+        MenuItem exportAsWordDocMenuItem = new MenuItem("Export As Word Document (.docx)");
+        exportAsWordDocMenuItem.setOnAction(e -> {
             notebookTextEditorPane.saveDocument(primaryStage);
         });
 
-        Menu saveAsMenuItem = new Menu("Save As");
-        saveAsMenuItem.getItems().addAll(saveAsNoteMenuItem, saveAsDocMenuItem);
+        Menu exportMenuItem = new Menu("Export");
+        exportMenuItem.getItems().addAll(exportAsWordDocMenuItem);
 
         Menu fileMenu = new Menu("File");
-        fileMenu.getItems().addAll(newMenuItem, openMenuItem, saveMenuItem, saveAsMenuItem);
+        fileMenu.getItems().addAll(newMenuItem, openMenuItem, saveMenuItem, saveAsMenuItem, exportMenuItem);
 
-        Menu viewNotebooksMenu = new Menu("View Notebooks");
+        Menu viewNotebooksMenu = new Menu("View Notes");
         viewNotebooksMenu.setOnAction(e -> {
             notebookPane.setContent(notebookFlowPane);
         });
