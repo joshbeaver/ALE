@@ -428,8 +428,8 @@ public class Main extends Application {
         series.getData().add(new XYChart.Data<Number, Number>(3, 15));
         series.getData().add(new XYChart.Data<Number, Number>(4, 124));
         lineChart.getData().add(series);
-        lineChart.setPrefWidth(700);
-        lineChart.setPrefHeight(600);
+        lineChart.setPrefWidth(400);
+        lineChart.setPrefHeight(300);
         lineChart.setLegendVisible(false);
 
         chatRoomField = new TextField();
@@ -505,36 +505,37 @@ public class Main extends Application {
 
 //-------------------------------------------------------------------------------------------------> Notebook Pane Start
 
-        TextEditorPane textEditorPane2 = new TextEditorPane();
+        TextEditorPane notebookTextEditorPane = new TextEditorPane();
         TextEditorUtils textEditorUtils = new TextEditorUtils();
 
         MenuItem newMenuItem = new MenuItem("New");
         newMenuItem.setOnAction(e -> {
-            textEditorPane2.clearTextEditorPane();
-            textEditorPane2.setTextEditorPane(null, false, primaryStage.getWidth() - (navigationPane.getWidth() + 15),
-                    primaryStage.getHeight() - (topPane.getHeight()), miscContainer, rootPane, primaryStage);
+            notebookTextEditorPane.clearTextEditorPane();
+            notebookTextEditorPane.setTextEditorPane(null, false, primaryStage.getWidth() - (navigationPane.getWidth()
+                            + 15), primaryStage.getHeight() - (topPane.getHeight()), miscContainer, rootPane,
+                    primaryStage);
         });
 
         MenuItem openMenuItem = new MenuItem("Open");
         openMenuItem.setOnAction(e -> {
-            textEditorPane2.setTextEditorPane(textEditorUtils.openNote(primaryStage), false, primaryStage.getWidth() -
-                            (navigationPane.getWidth() + 15), primaryStage.getHeight() - (topPane.getHeight()),
-                    miscContainer, rootPane, primaryStage);
+            notebookTextEditorPane.setTextEditorPane(textEditorUtils.openNote(primaryStage), false,
+                    primaryStage.getWidth() - (navigationPane.getWidth() + 15), primaryStage.getHeight() -
+                            (topPane.getHeight()), miscContainer, rootPane, primaryStage);
         });
 
         MenuItem saveMenuItem = new MenuItem("Save");
         saveMenuItem.setOnAction(e -> {
-            textEditorPane2.saveNote(primaryStage);
+            notebookTextEditorPane.saveNote(primaryStage);
         });
 
         MenuItem saveAsNoteMenuItem = new MenuItem("Save As Note");
         saveAsNoteMenuItem.setOnAction(e -> {
-            textEditorPane2.saveAsNote(primaryStage);
+            notebookTextEditorPane.saveAsNote(primaryStage);
         });
 
         MenuItem saveAsDocMenuItem = new MenuItem("Save As Document");
         saveAsDocMenuItem.setOnAction(e -> {
-            textEditorPane2.saveDocument(primaryStage);
+            notebookTextEditorPane.saveDocument(primaryStage);
         });
 
         Menu saveAsMenuItem = new Menu("Save As");

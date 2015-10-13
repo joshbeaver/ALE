@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?><config>
-    <remember state="true">
-        <user>8cake</user>
-        <pass>1000:c15d1dc535653d49004e084be1914fe4366f1a2bb3546cc5:9f8eae83f346f27aeb12a7d1b195eead294c27f65840ee43</pass>
+    <remember state="false">
+        <user/>
+        <pass/>
     </remember>
     <appearance>
         <style>styleDark</style>

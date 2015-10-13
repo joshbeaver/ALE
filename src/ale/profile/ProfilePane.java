@@ -40,6 +40,8 @@ public class ProfilePane {
     Label ageContentLbl;
     Label emailContentLbl;
     Label schoolContentLbl;
+    Label cityContentLbl;
+    Label countryContentLbl;
     Button profilePictureBtn;
 
     public void setProfilePane(String superUser, double prefWidth, double prefHeight, BorderPane parentPane,
@@ -66,9 +68,11 @@ public class ProfilePane {
             String profileEmail = xmlParser.getEmail();
             String profileAge = xmlParser.getAge();
             String profileSchool = xmlParser.getSchool();
-            String profileCountry = "";
-            String profileCity = "";
+            String profileCity = xmlParser.getCity();
+            String profileCountry = xmlParser.getCountry();
 
+
+            //<----- Username ----->
             Label usernameLbl = new Label("Username: ");
             usernameLbl.getStyleClass().add("profileInfoLbl");
 
@@ -78,6 +82,8 @@ public class ProfilePane {
             HBox usernameBox = new HBox();
             usernameBox.getChildren().addAll(usernameLbl, usernameContentLbl);
 
+
+            //<----- Email ----->
             Label emailLbl = new Label("Email: ");
             emailLbl.getStyleClass().add("profileInfoLbl");
 
@@ -90,6 +96,7 @@ public class ProfilePane {
             HBox emailBox = new HBox();
             emailBox.getChildren().addAll(emailLbl, emailContentLbl);
 
+            //<----- Age ----->
             Label ageLbl = new Label("Age: ");
             ageLbl.getStyleClass().add("profileInfoLbl");
 
@@ -112,6 +119,8 @@ public class ProfilePane {
             HBox ageBox = new HBox();
             ageBox.getChildren().addAll(ageLbl, ageContentLbl);
 
+
+            //<----- School ----->
             Label schoolLbl = new Label("School: ");
             schoolLbl.getStyleClass().add("profileInfoLbl");
 
@@ -125,6 +134,37 @@ public class ProfilePane {
 
             HBox schoolBox = new HBox();
             schoolBox.getChildren().addAll(schoolLbl, schoolContentLbl);
+
+
+            //<----- City ----->
+            Label cityLbl = new Label("City: ");
+            cityLbl.getStyleClass().add("profileInfoLbl");
+
+            cityContentLbl = new Label();
+            if (profileCity.length() > 0){
+                cityContentLbl.setText(profileCity);
+            }else {
+                cityContentLbl.setText("Set");
+            }
+            cityContentLbl.getStyleClass().add("profileInfoContentLbl");
+
+            HBox cityBox = new HBox();
+            cityBox.getChildren().addAll(cityLbl, cityContentLbl);
+
+            //<----- Country ----->
+            Label countryLbl = new Label("Country: ");
+            countryLbl.getStyleClass().add("profileInfoLbl");
+
+            countryContentLbl = new Label();
+            if (profileCountry.length() > 0){
+                countryContentLbl.setText(profileCountry);
+            }else {
+                countryContentLbl.setText("Set");
+            }
+            countryContentLbl.getStyleClass().add("profileInfoContentLbl");
+
+            HBox countryBox = new HBox();
+            countryBox.getChildren().addAll(countryLbl, countryContentLbl);
 
             profileGridPane = new GridPane();
             profileGridPane.getStyleClass().add("gridPane");
@@ -147,8 +187,14 @@ public class ProfilePane {
             profileGridPane.setColumnIndex(ageBox, 1);
             profileGridPane.setRowIndex(schoolBox, 3);
             profileGridPane.setColumnIndex(schoolBox, 1);
+            profileGridPane.setRowIndex(cityBox, 4);
+            profileGridPane.setColumnIndex(cityBox, 1);
+            profileGridPane.setRowIndex(countryBox, 5);
+            profileGridPane.setColumnIndex(countryBox, 1);
 
-            profileGridPane.getChildren().addAll(profilePictureBtn, usernameBox, emailBox, ageBox, schoolBox);
+            profileGridPane.getChildren().addAll(profilePictureBtn, usernameBox, emailBox, ageBox, schoolBox, cityBox,
+                    countryBox);
+            profileGridPane.setVgap(10);
 
             profilePane = new ScrollPane();
             profilePane.getStyleClass().add("scrollPane");

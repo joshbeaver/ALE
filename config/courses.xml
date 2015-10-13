@@ -151,10 +151,10 @@
                 <labelStyle>lbl4</labelStyle>
             </leaf>
 
-            <leaf name = "Reproductive System">
+            <leaf name = "The Reproductive System">
                 <type>local</type>
                 <url>res/courses/biology/anatomy/theReproductiveSystem.html</url>
-                <labelStyle>lbl4</labelStyle>
+                <labelStyle>lbl5</labelStyle>
             </leaf>
 
             <leaf name = "The Digestive System">

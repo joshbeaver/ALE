@@ -27,6 +27,8 @@ public class XMLParser {
     private static String email;
     private static String age;
     private static String school;
+    private static String city;
+    private static String country;
 
     static String width;
 
@@ -81,6 +83,18 @@ public class XMLParser {
 
             school = schoolElement.getTextContent();
             System.out.println(school);
+
+            Node cityNode = userInfoElement.getElementsByTagName("city").item(0);
+            Element cityElement = (Element)cityNode;
+
+            city = cityElement.getTextContent();
+            System.out.println(city);
+
+            Node countryNode = userInfoElement.getElementsByTagName("country").item(0);
+            Element countryElement = (Element)countryNode;
+
+            country = countryElement.getTextContent();
+            System.out.println(country);
 
             Node widthNode = userInfoElement.getElementsByTagName("width").item(0);
             Element widthElement = (Element)widthNode;
@@ -187,6 +201,10 @@ public class XMLParser {
     public static String getSchool() {
         return school;
     }
+
+    public static String getCity() { return city; }
+
+    public static String getCountry() { return country; }
 
     public static String getWidth() { return width; }
 
