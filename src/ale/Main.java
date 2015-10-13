@@ -8,6 +8,7 @@ import ale.dialog.ConfirmationDialog;
 import ale.profile.ProfilePane;
 import ale.simulation.SimulationPane;
 import ale.textEditor.TextEditorPane;
+import ale.textEditor.TextEditorUtils;
 import ale.utils.Misc;
 import ale.xml.XMLParser;
 import ale.tools.calculators.Calculator;
@@ -331,7 +332,7 @@ public class Main extends Application {
         textEditorBtn.setTooltip(textEditorToolTip);
         textEditorBtn.setOnAction(e -> {
             resetBtns();
-            textEditorPane.setTextEditorPane(primaryStage.getWidth() - (navigationPane.getWidth() + 15),
+            textEditorPane.setTextEditorPane(null, false, primaryStage.getWidth() - (navigationPane.getWidth() + 15),
                     primaryStage.getHeight() - (topPane.getHeight()), miscContainer, rootPane, primaryStage);
             textEditorBtn.getStyleClass().add("textEditorBtnSelected");
         });
@@ -505,18 +506,30 @@ public class Main extends Application {
 //-------------------------------------------------------------------------------------------------> Notebook Pane Start
 
         TextEditorPane textEditorPane2 = new TextEditorPane();
+        TextEditorUtils textEditorUtils = new TextEditorUtils();
 
         MenuItem newMenuItem = new MenuItem("New");
         newMenuItem.setOnAction(e -> {
-            textEditorPane2.setTextEditorPane(primaryStage.getWidth() - (navigationPane.getWidth() + 15),
+            textEditorPane2.clearTextEditorPane();
+            textEditorPane2.setTextEditorPane(null, false, primaryStage.getWidth() - (navigationPane.getWidth() + 15),
                     primaryStage.getHeight() - (topPane.getHeight()), miscContainer, rootPane, primaryStage);
         });
 
+        MenuItem openMenuItem = new MenuItem("Open");
+        openMenuItem.setOnAction(e -> {
+            textEditorPane2.setTextEditorPane(textEditorUtils.openNote(primaryStage), false, primaryStage.getWidth() -
+                            (navigationPane.getWidth() + 15), primaryStage.getHeight() - (topPane.getHeight()),
+                    miscContainer, rootPane, primaryStage);
+        });
+
         MenuItem saveMenuItem = new MenuItem("Save");
+        saveMenuItem.setOnAction(e -> {
+            textEditorPane2.saveNote(primaryStage);
+        });
 
         MenuItem saveAsNoteMenuItem = new MenuItem("Save As Note");
         saveAsNoteMenuItem.setOnAction(e -> {
-            textEditorPane2.saveNote(primaryStage);
+            textEditorPane2.saveAsNote(primaryStage);
         });
 
         MenuItem saveAsDocMenuItem = new MenuItem("Save As Document");
@@ -528,7 +541,7 @@ public class Main extends Application {
         saveAsMenuItem.getItems().addAll(saveAsNoteMenuItem, saveAsDocMenuItem);
 
         Menu fileMenu = new Menu("File");
-        fileMenu.getItems().addAll(newMenuItem, saveMenuItem, saveAsMenuItem);
+        fileMenu.getItems().addAll(newMenuItem, openMenuItem, saveMenuItem, saveAsMenuItem);
 
         Menu viewNotebooksMenu = new Menu("View Notebooks");
         viewNotebooksMenu.setOnAction(e -> {

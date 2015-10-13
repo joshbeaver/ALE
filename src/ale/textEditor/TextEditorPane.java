@@ -24,12 +24,16 @@ public class TextEditorPane {
     private static XWPFRun tmpRun;
     private static XWPFDocument document;
 
-    public static void setTextEditorPane(double prefWidth, double prefHeight, HBox btnContainer, BorderPane parentPane,
-                                         Stage primaryStage){
+    public static void setTextEditorPane(String text, boolean addSaveBtn, double prefWidth, double prefHeight, HBox btnContainer,
+                                         BorderPane parentPane, Stage primaryStage){
 
         if(textEditorPane == null){
 
             textEditor = new HTMLEditor();
+
+            if(text != null){
+                textEditor.setHtmlText(text);
+            }
 
             /** Prevents Scroll on Space Pressed */
             textEditor.addEventFilter(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>() {
@@ -49,16 +53,17 @@ public class TextEditorPane {
 
             Tooltip saveToolTip = new Tooltip("Save");
 
-            saveDocBtn = new Button();
-            saveDocBtn.getStyleClass().add("saveBtn");
-            saveDocBtn.setTooltip(saveToolTip);
-            saveDocBtn.setOnAction(e -> {
-                tmpRun.setText(teUtils.stripHTMLTags(textEditor.getHtmlText()));
-                tmpRun.setFontSize(12);
-                teUtils.saveDocument(document, primaryStage);
-            });
+            if(addSaveBtn == true){
+                saveDocBtn = new Button();
+                saveDocBtn.getStyleClass().add("saveBtn");
+                saveDocBtn.setTooltip(saveToolTip);
+                saveDocBtn.setOnAction(e -> {
+                    tmpRun.setText(teUtils.stripHTMLTags(textEditor.getHtmlText()));
+                    teUtils.saveDocument(document, primaryStage);
+                });
+                btnContainer.getChildren().addAll(saveDocBtn);
+            }
 
-            btnContainer.getChildren().addAll(saveDocBtn);
 
             textEditor.setPrefWidth(prefWidth);
             textEditor.setPrefHeight(prefHeight);
@@ -70,14 +75,27 @@ public class TextEditorPane {
         parentPane.setCenter(textEditorPane);
     }
 
+    public void clearTextEditorPane(){
+        textEditor = null;
+        textEditorPane = null;
+        saveDocBtn = null;
+        tmpRun = null;
+        document = null;
+    }
+
     public static void saveDocument(Stage primaryStage){
         tmpRun.setText(teUtils.stripHTMLTags(textEditor.getHtmlText()));
         tmpRun.setFontSize(12);
         teUtils.saveDocument(document, primaryStage);
     }
 
-    public static void saveNote(Stage primaryStage){
-        teUtils.saveNote(textEditor.getHtmlText(), primaryStage);
+    public static void saveAsNote(Stage primaryStage){
+        teUtils.saveAsNote(textEditor.getHtmlText(), primaryStage);
     }
+
+    public static void saveNote(Stage primaryStage){ teUtils.saveNote(textEditor.getHtmlText(), primaryStage); }
+
+
+
 
 }
