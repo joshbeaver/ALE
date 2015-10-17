@@ -121,7 +121,8 @@
 }
 
 .btn:hover{
-    -fx-background-color: #636363;
+    -fx-text-fill: #363636;
+    -fx-background-color: white;
 }
 
 .rootBtn{

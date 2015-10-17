@@ -310,6 +310,7 @@ public class Main extends Application {
         });
 
         // <----- Text Editor ----->
+        /*
         textEditorToolTip = new Tooltip("Text Editor");
 
         textEditorPane = new TextEditorPane();
@@ -322,6 +323,7 @@ public class Main extends Application {
                     primaryStage.getHeight() - (topPane.getHeight()), miscContainer, rootPane, primaryStage);
             textEditorBtn.getStyleClass().add("textEditorBtnSelected");
         });
+        */
 
         Line toolsDivider = new Line();
         toolsDivider.setStartX(0.0f);
@@ -374,7 +376,7 @@ public class Main extends Application {
         navigationPane = new VBox(0);
         navigationPane.getStyleClass().add("navigationPane");
         navigationPane.getChildren().addAll(initDivider, dashboardBtn, profileBtn, coursesBtn, mainDivider, notebookBtn,
-                simsBtn, textEditorBtn, toolsDivider, wolframBtn, wikipediaBtn, sitesDivider, settingsBtn);
+                simsBtn, toolsDivider, wolframBtn, wikipediaBtn, sitesDivider, settingsBtn);
 
 
         topPane = new HBox(1);
@@ -745,7 +747,7 @@ public class Main extends Application {
         coursesBtn.getStyleClass().removeAll("coursesBtnSelected");
         notebookBtn.getStyleClass().removeAll("notebookBtnSelected");
         simsBtn.getStyleClass().removeAll("simsBtnSelected");
-        textEditorBtn.getStyleClass().removeAll("textEditorBtnSelected");
+        //textEditorBtn.getStyleClass().removeAll("textEditorBtnSelected");
         wolframBtn.getStyleClass().removeAll("wolframBtnSelected");
         wikipediaBtn.getStyleClass().removeAll("wikipediaBtnSelected");
         settingsBtn.getStyleClass().removeAll("settingsBtnSelected");

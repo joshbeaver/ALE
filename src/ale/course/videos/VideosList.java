@@ -39,10 +39,10 @@ public class VideosList {
             Label vidAuthorLbl = new Label("Author Number " + i);
             vidAuthorLbl.getStyleClass().add("vidAuthorLbl");
 
-            VBox vidInfoBox = new VBox(10);
+            VBox vidInfoBox = new VBox();
             vidInfoBox.getChildren().addAll(vidTitleLbl, vidAuthorLbl);
 
-            HBox videoItem = new HBox();
+            HBox videoItem = new HBox(10);
             videoItem.getChildren().addAll(videoThumbnail, vidInfoBox);
             videosBox.getChildren().add(videoItem);
         }
