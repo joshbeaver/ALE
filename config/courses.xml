@@ -1,7 +1,8 @@
+<!-- Editing this file may cause the program to function incorrectly -->
 <courses version = "0.1">
 
     <root name = "Physics">
-        <icon>img/styleDark/Courses/physCourseBtn.png</icon>
+        <icon>Courses/physCourseBtn.png</icon>
         <locator>default</locator>
         <labelStyle>lbl2</labelStyle>
 
@@ -46,7 +47,7 @@
     </root>
 
     <root name = "Chemistry">
-        <icon>img/styleDark/Courses/chemCourseBtn.png</icon>
+        <icon>Courses/chemCourseBtn.png</icon>
         <locator>default</locator>
         <labelStyle>lbl2</labelStyle>
 
@@ -91,7 +92,7 @@
     </root>
 
     <root name = "Maths">
-        <icon>img/styleDark/Courses/mathCourseBtn.png</icon>
+        <icon>Courses/mathCourseBtn.png</icon>
         <locator>default</locator>
         <labelStyle>lbl2</labelStyle>
 
@@ -136,12 +137,12 @@
     </root>
 
     <root name = "Biology">
-        <icon>img/styleDark/Courses/bioCourseBtn.png</icon>
+        <icon>Courses/bioCourseBtn.png</icon>
         <locator>default</locator>
         <labelStyle>lbl2</labelStyle>
 
         <branch name = "Anatomy and Physiology">
-            <icon>img/styleDark/Courses/Biology/anatomyAndPhysiologyBtn.png</icon>
+            <icon>Courses/Biology/anatomyAndPhysiologyBtn.png</icon>
             <locator>default</locator>
             <labelStyle>lbl3</labelStyle>
 
@@ -166,7 +167,7 @@
         </branch>
 
         <branch name = "Cell Theory">
-            <icon>img/styleDark/Courses/Biology/cellTheoryBtn.png</icon>
+            <icon>Courses/Biology/cellTheoryBtn.png</icon>
             <locator>default</locator>
             <labelStyle>lbl2</labelStyle>
 
@@ -181,7 +182,7 @@
     </root>
 
     <root name = "Computer Science">
-        <icon>img/styleDark/Courses/compCourseBtn.png</icon>
+        <icon>Courses/compCourseBtn.png</icon>
         <locator>default</locator>
         <labelStyle>lbl4</labelStyle>
 
@@ -226,49 +227,49 @@
     </root>
 
     <root name = "Astronomy">
-        <icon>img/styleDark/Courses/astronCourseBtn.png</icon>
+        <icon>Courses/astronCourseBtn.png</icon>
         <locator>default</locator>
         <labelStyle>lbl2</labelStyle>
 
     </root>
 
     <root name = "Geography">
-        <icon>img/styleDark/Courses/geogCourseBtn.png</icon>
+        <icon>Courses/geogCourseBtn.png</icon>
         <locator>default</locator>
         <labelStyle>lbl2</labelStyle>
 
     </root>
 
     <root name = "Economics">
-        <icon>img/styleDark/Courses/economicsCourseBtn.png</icon>
+        <icon>Courses/economicsCourseBtn.png</icon>
         <locator>default</locator>
         <labelStyle>lbl2</labelStyle>
 
     </root>
 
     <root name = "History">
-        <icon>img/styleDark/Courses/histCourseBtn.png</icon>
+        <icon>Courses/histCourseBtn.png</icon>
         <locator>default</locator>
         <labelStyle>lbl2</labelStyle>
 
     </root>
 
     <root name = "Politics">
-        <icon>img/styleDark/Courses/politicsCourseBtn.png</icon>
+        <icon>Courses/politicsCourseBtn.png</icon>
         <locator>default</locator>
         <labelStyle>lbl2</labelStyle>
 
     </root>
 
     <root name = "Philosophy">
-        <icon>img/styleDark/Courses/philosophyCourseBtn.png</icon>
+        <icon>Courses/philosophyCourseBtn.png</icon>
         <locator>default</locator>
         <labelStyle>lbl2</labelStyle>
 
     </root>
 
     <root name = "Art">
-        <icon>img/styleDark/Courses/artCourseBtn.png</icon>
+        <icon>Courses/artCourseBtn.png</icon>
         <locator>default</locator>
         <labelStyle>lbl2</labelStyle>
 

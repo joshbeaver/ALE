@@ -1,5 +1,6 @@
 package ale.course.components;
 
+import ale.Configuration;
 import ale.LocatorType;
 import ale.Main;
 import javafx.geometry.Insets;
@@ -23,13 +24,12 @@ import java.io.InputStream;
 public class RootPane {
 
     public static void setRootPane(double prefWidth, double prefHeight, BorderPane parentPane) {
+
+        Configuration config = new Configuration();
+
         ScrollPane rootPane = new ScrollPane();
         rootPane.setPrefSize(prefWidth, prefHeight);
         rootPane.getStyleClass().add("scrollPane");
-
-        VBox rootVbox = new VBox();
-        rootVbox.setPrefSize(prefWidth, prefHeight);
-        rootVbox.getStyleClass().add("rootPane");
 
         FlowPane rootButtonsPane = new FlowPane();
         rootButtonsPane.setPrefWidth(prefWidth);
@@ -58,13 +58,18 @@ public class RootPane {
 
                 LocatorType locatorType = null;
 
-                if(locatorNode.getTextContent().equals("default")) locatorType = LocatorType.DEFAULT;
+                switch (locatorNode.getTextContent()){
+                    case "default":
+                        locatorType = LocatorType.DEFAULT;
+                        break;
+                }
 
                 InputStream imageIS = null;
 
                 switch (locatorType){
                     case DEFAULT:
-                        imageIS = Main.class.getResourceAsStream(iconNode.getTextContent());
+                        imageIS = Main.class.getResourceAsStream("img/" + config.getStyle() + "/" +
+                                iconNode.getTextContent());
                         break;
                 }
 

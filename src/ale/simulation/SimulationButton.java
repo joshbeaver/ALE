@@ -8,12 +8,16 @@ import javafx.scene.input.MouseButton;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 
+import java.io.InputStream;
+
 public class SimulationButton extends ButtonModel {
+
+    Configuration config = new Configuration();
 
     SourceType simType;
 
-    public SimulationButton(String simName){
-        super(ButtonType.LEAF, Main.class.getResourceAsStream("img/styleDark/Simulations/simulationBtn.png"));
+    public SimulationButton(String simName, InputStream imageIS){
+        super(ButtonType.LEAF, imageIS);
         setName(simName);
     }
 

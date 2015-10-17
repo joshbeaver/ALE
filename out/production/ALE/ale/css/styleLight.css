@@ -1,19 +1,108 @@
 
 /* --------------------------------------------------------------------------------------------------> Generics Start */
+
 .gridPane{
-    -fx-background-color: white;
+    -fx-background-color: #2a2a2a;
 }
 
-.lbl{
-        -fx-font-size: 40px;
-        -fx-font-family: "Courier New";
-        -fx-text-fill: white;
+.flowPane{
+    -fx-background-color: #2a2a2a;
 }
+
+.titledPane{
+    -fx-text-fill: #1b74f2;
+    -fx-font-size: 15px;
+    -fx-border-color: #2a2a2a;
+}
+
+.titledPane > .title{
+    -fx-background-color: #2a2a2a;
+    -fx-text-fill: white;
+    -fx-background-insets: 0, 1, 2;
+    -fx-background-radius: 5 5 0 0, 4 4 0 0, 3 3 0 0;
+    -fx-padding: 0.166667em 0.833333em 0.25em 0.833333em; /* 2 10 3 10 */
+}
+
+.titledPane > .title > .arrow-button{
+    -fx-background-color: null;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+    -fx-padding: 0.0em 0.25em 0.0em 0.0em; /* 0 3 0 0 */
+}
+
+.titledPane > .title > .arrow-button .arrow{
+    -fx-background-color: white
+    -fx-mark-highlight-color, -fx-mark-color;
+    -fx-background-insets: 1 0 -1 0, 0;
+    -fx-padding: 0.25em 0.3125em 0.25em 0.3125em; /* 3 3.75 3 3.75 */
+    -fx-shape: "M 0 0 h 7 l -3.5 4 z";
+}
+
+.titledPane > *.content{
+    -fx-border-color: transparent;
+}
+
+
+.lbl{
+    -fx-font-size: 40px;
+    -fx-font-family: "Courier New";
+    -fx-text-fill: white;
+}
+
+.lblLar{
+    -fx-font-size: 45px;
+    -fx-font-family: "Courier New";
+    -fx-text-fill: white;
+}
+
+.lblMed{
+    -fx-font-size: 25px;
+    -fx-font-family: "Courier New";
+    -fx-text-fill: white;
+}
+
+.lbl1{
+    -fx-font-size: 45px;
+    -fx-font-family: "Courier New";
+    -fx-text-fill: white;
+}
+
+.lbl2{
+    -fx-font-size: 40px;
+    -fx-font-family: "Courier New";
+    -fx-text-fill: white;
+}
+
+.lbl3{
+    -fx-font-size: 35px;
+    -fx-font-family: "Courier New";
+    -fx-text-fill: white;
+}
+
+.lbl4{
+    -fx-font-size: 30px;
+    -fx-font-family: "Courier New";
+    -fx-text-fill: white;
+}
+
+.lbl5{
+    -fx-font-size: 25px;
+    -fx-font-family: "Courier New";
+    -fx-text-fill: white;
+}
+
+.lbl6{
+    -fx-font-size: 20px;
+    -fx-font-family: "Courier New";
+    -fx-text-fill: white;
+}
+
+/** -------------------------------------------------------> Buttons Start */
 
 .btn{
     -fx-background-color: transparent;
     -fx-padding: 5 22 5 22;
-    -fx-border-color: #e2e2e2;
+    -fx-border-color: #FFFFFF;
     -fx-border-width: 2;
     -fx-background-radius: 0;
     -fx-background-color: transparent;
@@ -27,10 +116,81 @@
     -fx-background-color: #636363;
 }
 
+.rootBtn{
+    -fx-background-color: transparent;
+    -fx-padding: 5 22 5 22;
+    /* -fx-border-color: #FFFFFF; */
+    -fx-border-width: 8;
+    -fx-background-radius: 0;
+    -fx-background-color: transparent;
+    -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+    -fx-font-size: 11pt;
+    -fx-text-fill: #d8d8d8;
+    -fx-background-insets: 0 0 0 0, 0, 1, 2;
+}
+
+.rootBtn:hover{
+    -fx-background-color: #636363;
+}
+
+.branchBtn{
+    -fx-background-color: transparent;
+    -fx-padding: 5 22 5 22;
+    /* -fx-border-color: #FFFFFF; */
+    -fx-border-width: 8;
+    -fx-background-radius: 0;
+    -fx-background-color: transparent;
+    -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+    -fx-font-size: 11pt;
+    -fx-text-fill: #d8d8d8;
+    -fx-background-insets: 0 0 0 0, 0, 1, 2;
+}
+
+.branchBtn:hover{
+    -fx-background-color: #636363;
+}
+
+.leafBtn{
+
+}
+
+.leafBtn:hover{
+    -fx-background-color: #636363;
+}
+
+
+/** -------------------------------------------------------> Buttons End */
+
+.textField{
+    -fx-background-color: #363636;
+    -fx-background-insets: 0 0 0 0, 0, 1, 2;
+    -fx-background-radius: 0;
+    -fx-text-fill: white;
+}
+
+.radioBtn{
+    -fx-text-fill: white;
+}
+
+.radioBtn .dot{
+  -fx-mark-color: white ;
+}
+
+.radioBtn . radio{
+   -fx-background-color: transparent;
+   -fx-background-insets: 0 0 -1 0,  0,  1,  2;
+   -fx-background-radius: 1.0em;
+   -fx-padding: 0.333333em;
+   -fx-border-color: #e2e2e2;
+   -fx-border-width: 2;
+   -fx-border-radius: 1.0em;
+}
+
 /* ----------------------------------------------------------------------------------------------------> Generics End */
 
 
 /* -----------------------------------------------------------------------------------------------------> Login Start */
+
 .loginPane{
     -fx-background-color: #2a2a2a;
     -fx-border-color: #e2e2e2;
@@ -38,12 +198,12 @@
 }
 
 .loginSystemBtn{
-    -fx-graphic: url("../img/styleDark/System/smallSystemBtn.png");
+    -fx-graphic: url("../img/styleDark/System/systemBtnSmall.png");
     -fx-background-color: transparent;
 }
 
 .loginSystemBtn:hover{
-    -fx-graphic: url("../img/styleDark/System/smallSystemBtnHover.png");
+    -fx-graphic: url("../img/styleDark/System/systemBtnSmallHover.png");
     -fx-background-color: transparent;
 }
 
@@ -84,24 +244,6 @@
     -fx-background-color: white;
 }
 
-.rememberMeBtn{
-    -fx-text-fill: white;
-}
-
-.rememberMeBtn .dot{
-  -fx-mark-color: white ;
-}
-
-.rememberMeBtn . radio{
-   -fx-background-color: transparent;
-   -fx-background-insets: 0 0 -1 0,  0,  1,  2;
-   -fx-background-radius: 1.0em;
-   -fx-padding: 0.333333em;
-   -fx-border-color: #e2e2e2;
-   -fx-border-width: 2;
-   -fx-border-radius: 1.0em;
-}
-
 .errorLbl{
     -fx-text-fill: red;
 }
@@ -110,14 +252,14 @@
 
 
 .rootPane{
-    -fx-background-color: white;
+    -fx-background-color: #2a2a2a;
 }
 
 
 /* ---------------------------------------------------------------------------------------------------> Top Bar Start */
 
 .topPanel{
-    -fx-background-color: #363636;
+    -fx-background-color: #363636; /* Other Color Options: #4A4A4A*/
 }
 
 .systemBtn{
@@ -128,6 +270,27 @@
 .systemBtn:hover{
     -fx-graphic: url("../img/styleDark/System/systemBtnHover.png");
     -fx-transition: all 5s ease-in-out;
+}
+
+/*
+.systemBtnSmall{
+    -fx-graphic: url("../img/styleDark/System/systemBtnSmall.png");
+    -fx-background-color: transparent;
+}
+
+.systemBtnSmall:hover{
+    -fx-graphic: url("../img/styleDark/System/systemBtnSmallHover.png");
+    -fx-background-color: transparent;
+}*/
+
+.searchBar{
+    -fx-background-image:url("../img/styleDark/searchIcon.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: right center;
+    -fx-background-color: #2a2a2a;
+    -fx-background-insets: 0 0 0 0, 0, 1, 2;
+    -fx-background-radius: 20;
+    -fx-text-fill: white;
 }
 
 .calcBtn{
@@ -163,14 +326,23 @@
     -fx-background-color: #2a2a2a;
 }
 
+.navBtnSelected{
+    -fx-graphic: url("../img/styleDark/Navigation/btnSelected.png");
+}
+
 .dashboardBtn{
     -fx-graphic: url("../img/styleDark/Navigation/dashboardBtn.png");
     -fx-background-color: transparent;
     -fx-background-radius: 0;
+    -fx-border-radius: 0;
 }
 
 .dashboardBtn:hover{
     -fx-background-color: #636363;
+}
+
+.dashboardBtnSelected{
+    -fx-graphic: url("../img/styleDark/Navigation/dashboardBtnSelected.png");
 }
 
 .profileBtn{
@@ -184,8 +356,7 @@
 }
 
 .profileBtnSelected{
-    -fx-border-color: transparent transparent transparent #1b74f2;
-    -fx-border-width: 4;
+    -fx-graphic: url("../img/styleDark/Navigation/profileBtnSelected.png");
 }
 
 .coursesBtn{
@@ -199,8 +370,21 @@
 }
 
 .coursesBtnSelected{
-    -fx-border-color: transparent transparent transparent #1b74f2;
-    -fx-border-width: 4;
+    -fx-graphic: url("../img/styleDark/Navigation/coursesBtnSelected.png");
+}
+
+.notebookBtn{
+    -fx-graphic: url("../img/styleDark/Navigation/notebookBtn.png");
+    -fx-background-color: transparent;
+    -fx-background-radius: 0;
+}
+
+.notebookBtn:hover{
+    -fx-background-color: #636363;
+}
+
+.notebookBtnSelected{
+    -fx-graphic: url("../img/styleDark/Navigation/notebookBtnSelected.png");
 }
 
 .simsBtn{
@@ -214,8 +398,7 @@
 }
 
 .simsBtnSelected{
-    -fx-border-color: transparent transparent transparent #1b74f2;
-    -fx-border-width: 4;
+    -fx-graphic: url("../img/styleDark/Navigation/simulationsBtnSelected.png");
 }
 
 .textEditorBtn{
@@ -229,8 +412,7 @@
 }
 
 .textEditorBtnSelected{
-    -fx-border-color: transparent transparent transparent #1b74f2;
-    -fx-border-width: 4;
+    -fx-graphic: url("../img/styleDark/Navigation/textEditorBtnSelected.png");
 }
 
 .wolframBtn{
@@ -243,6 +425,10 @@
     -fx-background-color: #636363;
 }
 
+.wolframBtnSelected{
+    -fx-graphic: url("../img/styleDark/Navigation/wolframAlphaBtnSelected.png");
+}
+
 .wikipediaBtn{
     -fx-graphic: url("../img/styleDark/Navigation/wikipediaBtn.png");
     -fx-background-color: transparent;
@@ -251,6 +437,10 @@
 
 .wikipediaBtn:hover{
     -fx-background-color: #636363;
+}
+
+.wikipediaBtnSelected{
+    -fx-graphic: url("../img/styleDark/Navigation/wikipediaBtnSelected.png");
 }
 
 .settingsBtn{
@@ -263,23 +453,22 @@
     -fx-background-color: #636363;
 }
 
+.settingsBtnSelected{
+    -fx-graphic: url("../img/styleDark/Navigation/settingsBtnSelected.png");
+    -fx-background-color: transparent;
+    -fx-background-radius: 0;
+}
+
 /* ---------------------------------------------------------------------------------------------> Navigation Pane End */
 
 .centerPanel{
-    -fx-background-color: white;
+    -fx-background-color: #2a2a2a;
 }
 
 .chatBox{
     -fx-background-color: #363636;
 }
 
-
-
-.profilePictureBtn{
-    -fx-graphic: url("../img/styleDark/profilePictureButton.png");
-    -fx-background-color: transparent;
-    -fx-background-radius: 0;
-}
 
 /** ---------------------------------------------------------------------------------------------> Media Player Start */
 
@@ -341,15 +530,6 @@
 }
 
 
-.textField{
-    -fx-background-color: #363636;
-    -fx-background-insets: 0 0 0 0, 0, 1, 2;
-    -fx-background-radius: 0;
-    -fx-text-fill: white;
-}
-
-
-
 
 /* -------------------------------------------------------------------------------------------------> Text Area Start */
 
@@ -396,135 +576,41 @@
 /* ---------------------------------------------------------------------------------------------------> Text Area End */
 
 
-/* --------------------------------------------------------------------------------------------> Course Buttons Start */
-
-.chemistryBtn{
-    -fx-graphic: url("../img/styleDark/Courses/chemCourseBtn.png");
-    -fx-background-color: transparent;
-}
-
-.physicsBtn{
-    -fx-graphic: url("../img/styleDark/Courses/physCourseBtn.png");
-    -fx-background-color: transparent;
-}
-
-.mathsBtn{
-    -fx-graphic: url("../img/styleDark/Courses/mathCourseBtn.png");
-    -fx-background-color: transparent;
-}
-
-
-/** -------------------------------------------------------> Biology Buttons Start */
-
-.bioBtn{
-    -fx-graphic: url("../img/styleDark/Courses/bioCourseBtn.png");
-    -fx-background-color: transparent;
-}
-
-.anatomyBtn{
-    -fx-graphic: url("../img/styleDark/Courses/Biology/anatomyAndPhysiologyBtn.png");
-    -fx-background-color: transparent;
-}
-
-.skeletalSystemBtn{
-    -fx-graphic: url("../img/styleDark/Courses/Biology/theSkeletalSystemBtn.png");
-    -fx-background-color: transparent;
-}
-
-.digestiveSystemBtn{
-    -fx-graphic: url("../img/styleDark/Courses/Biology/theDigestiveSystem.png");
-    -fx-background-color: transparent;
-}
-
-.reproductiveSystemBtn{
-    -fx-graphic: url("../img/styleDark/Courses/Biology/theReproductiveSystemBtn.png");
-    -fx-background-color: transparent;
-}
-
-.cellTheoryBtn{
-    -fx-graphic: url("../img/styleDark/Courses/Biology/cellTheoryBtn.png");
-    -fx-background-color: transparent;
-}
-
-/** -------------------------------------------------------> Biology Buttons End */
-
-.compBtn{
-    -fx-graphic: url("../img/styleDark/Courses/compCourseBtn.png");
-    -fx-background-color: transparent;
-}
-
-.astronBtn{
-    -fx-graphic: url("../img/styleDark/Courses/astronCourseBtn.png");
-    -fx-background-color: transparent;
-}
-
-.geogBtn{
-    -fx-graphic: url("../img/styleDark/Courses/geogCourseBtn.png");
-    -fx-background-color: transparent;
-}
-
-.histBtn{
-    -fx-graphic: url("../img/styleDark/Courses/histCourseBtn.png");
-    -fx-background-color: transparent;
-}
-
-.ecoBtn{
-    -fx-graphic: url("../img/styleDark/Courses/economicsCourseBtn.png");
-    -fx-background-color: transparent;
-}
-
-.polBtn{
-    -fx-graphic: url("../img/styleDark/Courses/politicsCourseBtn.png");
-    -fx-background-color: transparent;
-}
-
-.philBtn{
-    -fx-graphic: url("../img/styleDark/Courses/philosophyCourseBtn.png");
-    -fx-background-color: transparent;
-}
-
-.artBtn{
-    -fx-graphic: url("../img/styleDark/Courses/artCourseBtn.png");
-    -fx-background-color: transparent;
-}
-
-/* ----------------------------------------------------------------------------------------------> Course Buttons End */
-
 
 /* -----------------------------------------------------------------------------------------------> Scroll Pane Start */
 
 .scrollPane{
-    -fx-background-color: #2a2a2a;
+    -fx-background: #2a2a2a;
     -fx-background-insets: 0,0,0;
 }
 
 .scrollPane .scroll-bar:vertical ,
 .scrollPane .scroll-bar:horizontal{
-    -fx-background-color: transparent;
+    -fx-background-color: #2a2a2a;
 }
 
 .scrollPane .increment-button ,
 .scrollPane .decrement-button{
-    -fx-background-color: transparent;
+    -fx-background-color: #2a2a2a;
 }
 
 .scrollPane .scroll-bar:vertical .track ,
 .scrollPane .scroll-bar:horizontal .track{
-    -fx-background-color: transparent;
+    -fx-background-color: #2a2a2a;
     -fx-border-color: transparent;
     -fx-background-radius: 0em;
 }
 
 .scrollPane .scroll-bar:vertical .thumb ,
 .scrollPane .scroll-bar:horizontal .thumb{
-    -fx-background-color: derive(gray,80%);
+    -fx-background-color: white;
     -fx-background-insets: 0,0,0;
     -fx-background-radius: 0em;
 }
 
 .scrollPane .scroll-bar .thumb ,
 .scrollPane .scroll-bar .thumb{
-    -fx-background-color: derive(gray,50%);
+    -fx-background-color: white;
 }
 
 /* -------------------------------------------------------------------------------------------------> Scroll Pane End */
@@ -576,7 +662,49 @@
 /* ----------------------------------------------------------------------------------------------------> Web view End */
 
 
+/* ------------------------------------------------------------------------------------------------> Pagination Start */
+
+.pagination {
+    -fx-border-color:  null;
+}
+
+.pagination .page {
+    -fx-background-color: #DDF1F8;
+    -fx-background-color: #2a2a2a;
+
+}
+
+.pagination .pagination-control {
+    -fx-background-color: #363636;
+}
+
+.pagination .pagination-control .bullet-button {
+    -fx-background-color: transparent, #DDF1F8, #0E5D79, white, white;
+}
+
+.pagination .pagination-control .bullet-button:selected {
+    -fx-background-color: transparent, #DDF1F8, #0E5D79, white, #0E5D79;
+}
+
+.pagination .pagination-control .left-arrow, .right-arrow{
+    -fx-background-color: #DDF1F8, #0E5D79;
+}
+
+/* --------------------------------------------------------------------------------------------------> Pagination End */
+
+
 /* ----------------------------------------------------------------------------------------------> Profile Pane Start */
+
+.profilePictureBtn{
+    -fx-graphic: url("../img/styleDark/profilePictureButton.png");
+    -fx-background-color: transparent;
+    -fx-background-radius: 0;
+}
+
+.profilePictureBtn:hover{
+    -fx-background-color: #636363;
+}
+
 
 .profileInfoContentLbl{
     -fx-font-size: 20px;
@@ -597,100 +725,6 @@
 /* ------------------------------------------------------------------------------------------------> Profile Pane End */
 
 
-/* ---------------------------------------------------------------------------------------> Simulations Buttons Start */
-
-.forcesAndMotionBtn{
-    -fx-graphic: url("../img/styleDark/Simulations/forcesAndMotionBtn.png");
-    -fx-background-color: transparent;
-}
-
-.forcesAndMotionBtn:hover{
-    -fx-cursor: pointer;
-}
-
-.balancingActBtn{
-    -fx-graphic: url("../img/styleDark/Simulations/balancingActBtn.png");
-    -fx-background-color: transparent;
-}
-
-.energySkateParkBtn{
-    -fx-graphic: url("../img/styleDark/Simulations/energySkateParkBtn.png");
-    -fx-background-color: transparent;
-}
-
-.wavesOnAStringBtn{
-    -fx-graphic: url("../img/styleDark/Simulations/wavesOnAStringBtn.png");
-    -fx-background-color: transparent;
-}
-
-.frictionBtn{
-    -fx-graphic: url("../img/styleDark/Simulations/frictionBtn.png");
-    -fx-background-color: transparent;
-}
-
-.moleculesAndLightBtn{
-    -fx-graphic: url("../img/styleDark/Simulations/moleculesAndLightBtn.png");
-    -fx-background-color: transparent;
-}
-
-.colorVisionBtn{
-    -fx-graphic: url("../img/styleDark/Simulations/colorVisionBtn.png");
-    -fx-background-color: transparent;
-}
-
-.balloonsAndStaticElectricityBtn{
-    -fx-graphic: url("../img/styleDark/Simulations/balloonsAndStaticElectricityBtn.png");
-    -fx-background-color: transparent;
-}
-
-.faradaysLawBtn{
-    -fx-graphic: url("../img/styleDark/Simulations/faradaysLawBtn.png");
-    -fx-background-color: transparent;
-}
-
-.ohmsLawBtn{
-    -fx-graphic: url("../img/styleDark/Simulations/ohmsLawBtn.png");
-    -fx-background-color: transparent;
-}
-
-.acidBaseSolutionsBtn{
-    -fx-graphic: url("../img/styleDark/Simulations/acidBaseSolutionsBtn.png");
-    -fx-background-color: transparent;
-}
-
-.balancingChemicalEquationsBtn{
-    -fx-graphic: url("../img/styleDark/Simulations/balancingChemicalEquationsBtn.png");
-    -fx-background-color: transparent;
-}
-
-.buildAnAtomBtn{
-    -fx-graphic: url("../img/styleDark/Simulations/buildAnAtomBtn.png");
-    -fx-background-color: transparent;
-}
-
-.beersLawLabBtn{
-     -fx-graphic: url("../img/styleDark/Simulations/beersLawLabBtn.png");
-     -fx-background-color: transparent;
- }
-
-.concentrationBtn{
-     -fx-graphic: url("../img/styleDark/Simulations/concentrationBtn.png");
-     -fx-background-color: transparent;
- }
-
-.molarityBtn{
-     -fx-graphic: url("../img/styleDark/Simulations/molarityBtn.png");
-     -fx-background-color: transparent;
-}
-
-.moleculeShapesBtn{
-     -fx-graphic: url("../img/styleDark/Simulations/moleculeShapesBtn.png");
-     -fx-background-color: transparent;
-}
-
-/* -----------------------------------------------------------------------------------------> Simulations Buttons End */
-
-
 /* -----------------------------------------------------------------------------------------------------> Chart Start */
 
 .chart-title{
@@ -699,7 +733,7 @@
 
 .axis {
     -fx-font-size: 1.0em;
-    -fx-tick-label-fill: #2a2a2a;
+    -fx-tick-label-fill: white;
     -fx-font-family: Tahoma;
     -fx-tick-length: 10;
     -fx-minor-tick-length: 5;
@@ -716,7 +750,7 @@
 }
 
 .chart-horizontal-grid-lines {
-    -fx-stroke: #2a2a2a;
+    -fx-stroke: gray;
 }
 
 .chart-legend {
@@ -787,3 +821,75 @@
 /* -------------------------------------------------------> Video Tab End */
 
 /* ----------------------------------------------------------------------------------------------------> Tab Pane End */
+
+/* --------------------------------------------------------------------------------------------------> Menu Bar Start */
+
+.menuBtn {
+    -fx-background-color: transparent;
+}
+
+.menuBtn .label {
+    -fx-font-size: 14px;
+    -fx-text-fill: white;
+    -fx-background-color: transparent;
+ }
+
+ .menuBtn:showing .label {
+     -fx-font-size: 14px;
+     -fx-text-fill: white;
+     -fx-background-color: #1b74f2;
+  }
+
+ .menu { /* The File menu item */ }
+ .menu:showing { /* menu when it's being shown (activated) */ }
+ .menu .label { /* Styles the text on a menu item */ }
+ .menu:showing .label {
+    /* Styles the text on a menu item when activated */
+ }
+
+ .context-menu {
+     -fx-background-color: #2a2a2a;
+     -fx-background-insets: 0, 1, 2;
+     -fx-background-radius: 0em;
+ /*    -fx-padding: 0.666667em 0.083333em 0.666667em 0.083333em;  8 1 8 1 */
+     -fx-padding: 0.333333em 0.083333em 0.666667em 0.083333em; /* 4 1 8 1 */
+ }
+
+/* ----------------------------------------------------------------------------------------------------> Menu Bar End */
+
+
+/* ----------------------------------------------------------------------------------------------------> Search Start */
+.searchResultItem{
+    -fx-background-color: #2a2a2a
+}
+
+.searchResultTitleLbl{
+     -fx-font-size: 28px;
+     -fx-font-family: "Arial";
+     -fx-text-fill: white;
+ }
+
+.searchResultTitleLbl{
+    -fx-font-size: 22px;
+    -fx-font-family: "Arial";
+    -fx-text-fill: white;
+}
+
+/* ------------------------------------------------------------------------------------------------------> Search End */
+
+.calcField{
+    -fx-background-color: #363636;
+    -fx-background-insets: 0 0 0 0, 0, 1, 2;
+    -fx-background-radius: 0;
+    -fx-text-fill: white;
+}
+
+.calc{
+    -fx-background-color: #363636;
+    -fx-padding: 5 22 5 22;
+    -fx-background-radius: 0;
+    -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+    -fx-font-size: 11pt;
+    -fx-text-fill: white;
+    -fx-background-insets: 0 0 0 0, 0, 1, 2;
+}

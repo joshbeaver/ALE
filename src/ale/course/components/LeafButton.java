@@ -1,11 +1,14 @@
 package ale.course.components;
 
+import ale.Main;
 import ale.SourceType;
 import ale.components.ButtonModel;
 import ale.components.ButtonType;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
+
+import java.io.InputStream;
 
 public class LeafButton extends ButtonModel{
 
@@ -18,9 +21,9 @@ public class LeafButton extends ButtonModel{
     double prefWidth;
     double prefHeight;
 
-    public LeafButton(String leafName, String branchName, String rootName, String courseUrl, SourceType sourceType,
-                      BorderPane parentPane, double prefWidth, double prefHeight) {
-        super(ButtonType.LEAF, null);
+    public LeafButton(InputStream imageIS, String leafName, String branchName, String rootName, String courseUrl, 
+                      SourceType sourceType, BorderPane parentPane, double prefWidth, double prefHeight) {
+        super(ButtonType.LEAF, imageIS);
         setName(leafName);
 
         this.rootName = rootName;

@@ -1,4 +1,12 @@
 
+/*
+    Colors:
+    Gray - #363636
+    Dark Gray - #2a2a2a
+    Light Gray - #636363
+    Blue - #1b74f2
+*/
+
 /* --------------------------------------------------------------------------------------------------> Generics Start */
 
 .gridPane{
@@ -119,7 +127,7 @@
 .rootBtn{
     -fx-background-color: transparent;
     -fx-padding: 5 22 5 22;
-    /* -fx-border-color: #FFFFFF; */
+     -fx-border-color: #FFFFFF;
     -fx-border-width: 8;
     -fx-background-radius: 0;
     -fx-background-color: transparent;

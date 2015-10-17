@@ -1,5 +1,7 @@
 package ale.simulation;
 
+import ale.Configuration;
+import ale.Main;
 import ale.SourceType;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TitledPane;
@@ -18,8 +20,11 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 
 public class SimulationPane{
+
+    static Configuration config = new Configuration();
 
     static WebView simWebView = new WebView();
     static WebEngine simWebEngine = simWebView.getEngine();
@@ -65,7 +70,10 @@ public class SimulationPane{
                     Node simUrlNode = simElement.getElementsByTagName("url").item(0);
                     Element simUrlElement = (Element)simUrlNode;
 
-                    SimulationButton simBtn = new SimulationButton(simNameElement.getTextContent());
+                    InputStream imageIS = Main.class.getResourceAsStream("img/"+ config.getStyle()
+                            + "/simulationBtn.png");
+
+                    SimulationButton simBtn = new SimulationButton(simNameElement.getTextContent(), imageIS);
                     simBtn.setNameFontSize(Double.parseDouble(simFontSizeElement.getTextContent()));
                     simBtn.setOnClicked(simUrlElement.getTextContent(), simPane, SourceType.WEB,
                             simWebEngine, simWebView);

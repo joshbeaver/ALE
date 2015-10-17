@@ -1,5 +1,6 @@
 package ale.components;
 
+import ale.Configuration;
 import ale.Main;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
@@ -11,6 +12,8 @@ import javafx.scene.text.TextAlignment;
 import java.io.InputStream;
 
 abstract public class ButtonModel extends VBox{
+
+    Configuration config = new Configuration();
 
     private final ImageView btnIconImageView = new ImageView();
     private Image btnIconImage = null;
@@ -34,6 +37,7 @@ abstract public class ButtonModel extends VBox{
                     nameLbl.setMinWidth(280);
                     nameLbl.setMaxWidth(280);
                     break;
+
                 case BRANCH:
                     getStyleClass().add("branchBtn");
                     setMaxWidth(320);
@@ -44,12 +48,12 @@ abstract public class ButtonModel extends VBox{
                     nameLbl.setMinWidth(280);
                     nameLbl.setMaxWidth(280);
                     break;
+
                 case LEAF:
                     getStyleClass().add("leafBtn");
                     setPrefSize(250, 250);
                     lblStyle = "lblMed";
                     nameLbl.setMaxWidth(250);
-                    imageIS = Main.class.getResourceAsStream("img/styleDark/Courses/courseBtn.png");
                     break;
             }
         }else{
@@ -59,7 +63,7 @@ abstract public class ButtonModel extends VBox{
         if(imageIS !=  null){
             btnIconImage = new Image(imageIS);
         }else {
-            btnIconImage = new Image(Main.class.getResourceAsStream("img/styleDark/defaultBtn.png"));
+            btnIconImage = new Image(Main.class.getResourceAsStream("img/" + config.getStyle() + "/defaultBtn.png"));
         }
 
         nameLbl.getStyleClass().add(lblStyle);

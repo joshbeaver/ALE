@@ -1,5 +1,6 @@
 package ale.course.components;
 
+import ale.Configuration;
 import ale.LocatorType;
 import ale.Main;
 import javafx.geometry.Insets;
@@ -23,6 +24,9 @@ import java.io.InputStream;
 public class BranchPane {
 
     public static void setBranchPane(double prefWidth, double prefHeight, BorderPane parentPane, String parentName) {
+
+        Configuration config = new Configuration();
+
         ScrollPane branchPane = new ScrollPane();
         branchPane.setPrefSize(prefWidth, prefHeight);
         branchPane.getStyleClass().add("scrollPane");
@@ -61,14 +65,19 @@ public class BranchPane {
                         Node locatorNode = branchElement.getElementsByTagName("locator").item(0);
 
                         LocatorType locatorType = null;
-                        if(locatorNode.getTextContent().equals("default")) locatorType = LocatorType.DEFAULT;
 
+                        switch (locatorNode.getTextContent()){
+                            case "default":
+                                locatorType = LocatorType.DEFAULT;
+                                break;
+                        }
 
                         InputStream imageIS = null;
 
                         switch (locatorType){
                             case DEFAULT:
-                                imageIS = Main.class.getResourceAsStream(iconNode.getTextContent());
+                                imageIS = Main.class.getResourceAsStream("img/" + config.getStyle() + "/" +
+                                        iconNode.getTextContent());
                                 break;
                         }
 
@@ -81,7 +90,6 @@ public class BranchPane {
                         branchButtonsPane.getChildren().add(branchButton);
 
                     }
-                    //break;
                 }
 
             }

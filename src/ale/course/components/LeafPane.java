@@ -1,6 +1,8 @@
 package ale.course.components;
 
 
+import ale.Configuration;
+import ale.Main;
 import ale.SourceType;
 import javafx.geometry.Insets;
 import javafx.scene.control.ScrollPane;
@@ -18,11 +20,15 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 
 public class LeafPane {
 
     public static void setLeafPane(double prefWidth, double prefHeight, BorderPane parentPane, String rootName,
                                    String branchName) {
+
+        Configuration config = new Configuration();
+
         ScrollPane leafPane = new ScrollPane();
         leafPane.setPrefSize(prefWidth, prefHeight);
         leafPane.getStyleClass().add("scrollPane");
@@ -76,10 +82,12 @@ public class LeafPane {
 
                                 Node urlNode = leafElement.getElementsByTagName("url"). item(0);
 
+                                InputStream imageIS = Main.class.getResourceAsStream("img/" + config.getStyle() +
+                                        "/" + "Courses/courseBtn.png");
 
-                                LeafButton leafButton = new LeafButton(leafElement.getAttribute("name"), branchName,
-                                        rootName, urlNode.getTextContent(), sourceType, parentPane, prefWidth,
-                                        prefHeight);
+                                LeafButton leafButton = new LeafButton(imageIS, leafElement.getAttribute("name"),
+                                        branchName, rootName, urlNode.getTextContent(), sourceType, parentPane,
+                                        prefWidth, prefHeight);
 
                                 Node labelStyleNode = leafElement.getElementsByTagName("labelStyle").item(0);
                                 leafButton.setLblStyle(labelStyleNode.getTextContent());

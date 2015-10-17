@@ -4,12 +4,10 @@ import ale.chat.Client;
 import ale.course.components.RootPane;
 import ale.database.Interaction;
 import ale.database.Search;
-import ale.dialog.ConfirmationDialog;
 import ale.profile.ProfilePane;
 import ale.simulation.SimulationPane;
 import ale.textEditor.TextEditorPane;
 import ale.textEditor.TextEditorUtils;
-import ale.utils.Misc;
 import ale.xml.XMLParser;
 import ale.tools.calculators.Calculator;
 
@@ -18,7 +16,6 @@ import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.geometry.Rectangle2D;
-import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
@@ -29,33 +26,23 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.input.MouseButton;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
-import javafx.scene.web.HTMLEditor;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import org.apache.poi.xwpf.usermodel.XWPFDocument;
-import org.apache.poi.xwpf.usermodel.XWPFParagraph;
-import org.apache.poi.xwpf.usermodel.XWPFRun;
 
 import javax.swing.*;
 import java.io.*;
-import java.net.MalformedURLException;
-import java.sql.*;
 
 public class Main extends Application {
 
     Client client = new Client();
-    Misc utils = new Misc();
     XMLParser xmlParser = new XMLParser();
     Configuration config = new Configuration();
     Interaction database = new Interaction();
@@ -75,7 +62,7 @@ public class Main extends Application {
     double programWidth;
     double programHeight;
 
-    // Panes
+    //Panes
     BorderPane rootPane;
     VBox navigationPane;
     HBox topPane;
@@ -100,16 +87,15 @@ public class Main extends Application {
     MenuBar notebookMenuBar;
     Tooltip notebookToolTip;
 
-
+    //Profile
     ProfilePane profilePane;
 
     //Simulations
-    ScrollPane simsPanel;
+    ScrollPane simsPane;
     Tooltip simsToolTip;
 
     //Text Editor
     Tooltip textEditorToolTip;
-    HTMLEditor textEditor;
     TextEditorPane textEditorPane;
 
     //Wolfram Alpha
@@ -297,7 +283,7 @@ public class Main extends Application {
 
         notebookBtn = new Button();
         notebookBtn.getStyleClass().add("notebookBtn");
-        notebookBtn.setTooltip(simsToolTip);
+        notebookBtn.setTooltip(notebookToolTip);
         notebookBtn.setOnAction(e -> {
             resetBtns();
             miscContainer.getChildren().remove(calcBtn);
@@ -314,11 +300,11 @@ public class Main extends Application {
         simsBtn.setTooltip(simsToolTip);
         simsBtn.setOnAction(e -> {
             resetBtns();
-            if(simsPanel == null){
-                simsPanel = SimulationPane.getSimulationPane(primaryStage.getWidth() - (navigationPane.getWidth() + 15),
+            if(simsPane == null){
+                simsPane = SimulationPane.getSimulationPane(primaryStage.getWidth() - (navigationPane.getWidth() + 15),
                         primaryStage.getHeight() - (topPane.getHeight()));
             }
-            rootPane.setCenter(simsPanel);
+            rootPane.setCenter(simsPane);
             System.out.println(programWidth);
             simsBtn.getStyleClass().add("simsBtnSelected");
         });
