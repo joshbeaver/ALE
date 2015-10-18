@@ -1,4 +1,6 @@
 package ale.browser;
 
-public class Browser {
+import javafx.scene.layout.BorderPane;
+
+public class Browser extends BorderPane {
 }
